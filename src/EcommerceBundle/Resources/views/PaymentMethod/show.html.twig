@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{{ 'hecommerce.management.paymentmethod'|trans({}, 'management') }}</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>{{ 'hecommerce.management.id'|trans({}, 'management') }}</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'hecommerce.management.name'|trans({}, 'management') }}</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('hecommerce_paymentmethod') }}">
+            {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('hecommerce_paymentmethod_edit', { 'id': entity.id }) }}">
+            {{ 'hecommerce.management.edit'|trans({}, 'management') }}
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

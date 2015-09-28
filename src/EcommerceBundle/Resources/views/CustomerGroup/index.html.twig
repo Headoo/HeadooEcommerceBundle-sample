@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{{ 'hecommerce.customergroup.list'|trans({}, 'management') }}</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>{{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.management.name'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.management.actions'|trans({}, 'management') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('hecommerce_customergroup_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('hecommerce_customergroup_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('hecommerce_customergroup_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('hecommerce_customergroup_new') }}">
+                {{ 'hecommerce.management.backtothelist'|trans({}, 'createnewentry') }}
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

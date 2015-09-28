@@ -1,0 +1,22 @@
+#payment routes
+
+hecommerce_payment_prepare_stripe:
+    path:     /store/payment/stripe/prepare
+    defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareStripe" }
+    methods:  GET
+
+hecommerce_payment_done_stripe:
+    path:     /store/payment/done
+    defaults: { _controller: "HeadooEcommerceBundle:Payment:doneStripe" }
+    methods:  GET
+
+hecommerce_payment_prepare_reseller:
+    path:     /store/payment/reseller/prepare
+    defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareReseller" }
+    methods:  GET
+
+hecommerce_payment_done_reseller:
+    path:     /store/payment/reseller/done
+    defaults: { _controller: "HeadooEcommerceBundle:Payment:doneReseller" }
+    methods:  GET
+        

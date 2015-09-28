@@ -1,0 +1,7 @@
+#service routes
+
+hecommerce_management:
+    path:     /management
+    defaults: { _controller: "HeadooEcommerceBundle:Management:index" }
+    methods:  GET
+    

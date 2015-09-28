@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>{{ 'hecommerce.management.paymentmethod'|trans({}, 'management') }}</h1>
+    {% if order is empty %} 
+        {{ 'hecommerce.store.emptycart'|trans({}, 'store') }}
+    {% else %}
+        <table>
+           <tbody> 
+                {% for method in paymentMethods %}
+                   <tr>
+                       <th>
+                            {% set paymentMethodImg = method.name %}
+                            <img src="/images/{{ paymentMethodImg }}.png" width="80px" alt="my alt of image" class="pull-left">
+                       </th>
+                       <td>
+                            <a href="{{ path('hecommerce_payment_prepare_' ~ method.name) }}">{{ 'hecommerce.store.choosepayment'|trans({}, 'store') }}</a>
+                       </td>
+                   </tr>
+                {% endfor %}
+           </tbody>           
+        </table>
+        <br>
+        <a href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.backtosummary'|trans({}, 'store') }}</a>
+    {% endif %}
+
+{% endblock %}

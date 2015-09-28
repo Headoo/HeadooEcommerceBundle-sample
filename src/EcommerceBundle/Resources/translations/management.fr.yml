@@ -1,0 +1,50 @@
+hecommerce:
+    management:
+        id: "id"
+        title: "Headoo Store Management"
+        name: "Nom"
+        code: "Code"
+        symbol: "Symbol"
+        description: "Description"
+        price: "Prix"
+        option: "Option"
+        actions: "Actions"
+        show: "Voir"
+        edit: "Éditer"
+        delete: "Supprimer"
+        create: "Créer"
+        customergroup: "Groupes de consommateurs"
+        service: "Services"
+        servicerange: "Gamme de services"
+        check: "Consulter"
+        pricecurrency: 
+            sing: "Devise"
+            pl: "Devises"
+        paymentmethod: "Méthodes de paiment"
+        submit: "Valider"
+        cancel: "Annuler"
+        update: "Mettre à jour"
+        backtothelist: "Retourner vers la liste"
+        createnewentry: "Créer une nouvelle entité"
+    customergroup:
+        list: "Liste des groupes de consommateurs"
+        edit: "Édition du groupe de consommateurs"
+        create: "Création du groupe de consommateurs"
+    pricecurrency:
+        list: "Liste des devises"
+        edit: "Édition de la devise"
+        create: "Création d'une devise"
+    service:
+        list: "Liste des services"
+        edit: "Édition du service"
+        create: "Création d'un service"
+    servicerange:
+        list: "Liste des gammes de service"
+        edit: "Édition de la gamme de service"
+        create: "Création d'une gamme de service"
+    paymentmethod:
+        list: "Liste des méthodes de paiement"
+        edit: "Édition de la méthode de paiement"
+        create: "Création d'une méthode de paiement"
+
+        

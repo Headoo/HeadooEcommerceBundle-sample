@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>{{ 'hecommerce.store.thankyou'|trans({}, 'store') }}</h1>
+    
+    <a href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.backtostore'|trans({}, 'store') }}</a>
+
+{% endblock %}

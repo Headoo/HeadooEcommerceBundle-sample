@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>{{ 'hecommerce.customergroup.create'|trans({}, 'management') }}</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('hecommerce_customergroup') }}">
+            {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
+        </a>
+    </li>
+</ul>
+{% endblock %}

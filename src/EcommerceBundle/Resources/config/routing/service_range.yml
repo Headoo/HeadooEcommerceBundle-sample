@@ -1,0 +1,41 @@
+#service range routes
+
+hecommerce_servicerange:
+    path:     /servicerange
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:index" }
+    methods:  GET
+
+hecommerce_servicerange_show:
+    path:     /servicerange/{id}/show
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:show" }
+    requirements:
+        id:  \d+
+
+hecommerce_servicerange_new:
+    path:     /servicerange/new
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:new" }
+
+hecommerce_servicerange_create:
+    path:     /servicerange/create
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:create" }
+    methods:  POST
+
+hecommerce_servicerange_edit:
+    path:     /servicerange/{id}/edit
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:edit" }
+    requirements:
+        id:  \d+
+
+hecommerce_servicerange_update:
+    path:     /servicerange/{id}/update
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:update" }
+    methods:  [POST, PUT]
+    requirements:
+        id:  \d+
+
+hecommerce_servicerange_delete:
+    path:     /servicerange/{id}/delete
+    defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:delete" }
+    methods:  [POST, DELETE]
+    requirements:
+        id:  \d+

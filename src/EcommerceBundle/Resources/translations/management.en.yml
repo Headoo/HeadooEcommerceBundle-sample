@@ -1,0 +1,50 @@
+hecommerce:
+    management:
+        id: "id"
+        title: "Headoo Store Management"
+        name: "Name"
+        code: "Code"
+        symbol: "Symbole"
+        description: "Description"
+        price: "Price"
+        option: "Option"
+        actions: "Actions"
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        create: "Create"
+        customergroup: "Customer Groups"
+        service: "Services"
+        servicerange: "Range of services"
+        check: "Check"
+        pricecurrency: 
+            sing: "Price Currency"
+            pl: "Price Currencies"
+        paymentmethod: "Payment Methods"
+        submit: "Submit" 
+        cancel: "Cancel"
+        update: "Update"
+        backtothelist: "Back to the list"
+        createnewentry: "Create a new entry"
+    customergroup:
+        list: "Customers Group List"
+        edit: "Customer Group Edition"
+        create: "Customer Group Creation"
+    pricecurrency:
+        list: "List of Price Currencies"
+        edit: "Price Currency Edition"
+        create: "Price Currency Creation"
+    service:
+        list: "List of Services"
+        edit: "Service Edition"
+        create: "Service Creation"
+    servicerange:
+        list: "List of Service Ranges"
+        edit: "Service Range Edition"
+        create: "Service Range Creation"
+    paymentmethod:
+        list: "List of Payment Methods"
+        edit: "Payment Method Edition"
+        create: "Payment Method Creation"
+
+

@@ -1,3 +1,54 @@
+core:
+    resource: "@CoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+### Headoo Ecommerce routing ###
+
+headoo_ecommerce_management:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/management.yml"
+
+headoo_ecommerce_customergroup:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/customer_group.yml"
+
+headoo_ecommerce_service:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/service.yml"
+
+headoo_ecommerce_servicerange:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/service_range.yml"
+
+headoo_ecommerce_pricecurrency:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/price_currency.yml"
+
+headoo_ecommerce_paymentmethod:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/payment_method.yml"
+
+headoo_ecommerce_store:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/store.yml"
+
+headoo_ecommerce_order:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/order.yml"
+
+headoo_ecommerce_payment:
+    resource: "@HeadooEcommerceBundle/Resources/config/routing/payment.yml"
+
+### Payum routing ###
+
+payum_capture:
+    resource: "@PayumBundle/Resources/config/routing/capture.xml"
+
+payum_authorize:
+    resource: "@PayumBundle/Resources/config/routing/authorize.xml"
+
+payum_notify:
+    resource: "@PayumBundle/Resources/config/routing/notify.xml"
+
+### FosUserBundle routing ###
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

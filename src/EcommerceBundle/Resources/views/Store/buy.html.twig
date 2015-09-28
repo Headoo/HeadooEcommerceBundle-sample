@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>{{ 'hecommerce.store.title'|trans({}, 'store') }}</h1>
+    
+    <table>
+       <thead> 
+           <tr>
+               <th>{{ 'hecommerce.store.service'|trans({}, 'store') }}</th>
+               <th>{{ 'hecommerce.store.description'|trans({}, 'store') }}</th>
+               <th>{{ 'hecommerce.store.price'|trans({}, 'store') }}</th>
+               <th>{{ 'hecommerce.store.quantity'|trans({}, 'store') }}</th>
+           </tr>
+       </thead>
+       <tbody> 
+        {% for service in services %}
+           <tr>
+               <td>{{ service.name }}</td>
+               <td>{{ service.description }}</td>
+                    <td>{{ service.price|localizedcurrency(customerGroup.priceCurrency.code) }}</td>
+               <td>
+                   <form action="{{ path('hecommerce_store_cart', { 'id': service.id }) }}" method="POST">
+                        <input type="text" name="service-{{ service.id }}" >
+                        <input type="submit" value="{{ 'hecommerce.store.addcart'|trans({}, 'store') }}" >
+                   </form>
+               </td>
+           </tr> 
+        {% endfor %}
+       </tbody>           
+    </table>
+    <div>
+        <p><a href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.checkcart'|trans({}, 'store') }}</a> ({{ quantity }})</p>
+        <p><b>{{ 'hecommerce.store.total'|trans({}, 'store') }}:</b> {{ total|localizedcurrency(customerGroup.priceCurrency.code) }}</p>
+    </div>            
+{% endblock %}
+

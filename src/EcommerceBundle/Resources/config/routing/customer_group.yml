@@ -1,0 +1,45 @@
+#customer group routes
+
+hecommerce_customergroup:
+    path: /customergroup
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:index }
+    methods:  GET
+
+hecommerce_customergroup_create:
+    path: /customergroup
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:create }
+    methods:  POST
+    
+hecommerce_customergroup_new:
+    path: /customergroup/new
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:new }
+    methods:  GET
+    
+hecommerce_customergroup_show:
+    path: /customergroup/{id}
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:show }
+    methods: GET
+    requirements:
+        id:  \d+
+    
+hecommerce_customergroup_edit:
+    path: /customergroup/{id}/edit
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:edit }
+    methods: GET
+    requirements:
+        id:  \d+
+    
+hecommerce_customergroup_update:
+    path: /customergroup/{id}
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:update }
+    methods: [POST, PUT]
+    requirements:
+        id:  \d+
+    
+hecommerce_customergroup_delete:
+    path: /customergroup/{id}
+    defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:delete }
+    methods: [POST, DELETE]
+    requirements:
+        id:  \d+
+    

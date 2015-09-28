@@ -1,0 +1,45 @@
+#service routes
+
+hecommerce_paymentmethod:
+    path:     /paymentmethod
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:index" }
+    methods:  GET
+
+hecommerce_paymentmethod_show:
+    path:     /paymentmethod/{id}/show
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:show" }
+    methods:  GET
+    requirements:
+        id:  \d+
+
+hecommerce_paymentmethod_new:
+    path:     /paymentmethod/new
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:new" }
+    methods:  GET
+
+hecommerce_paymentmethod_create:
+    path:     /paymentmethod/create
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:create" }
+    methods:  POST
+
+hecommerce_paymentmethod_edit:
+    path:     /paymentmethod/{id}/edit
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:edit" }
+    methods:  GET
+    requirements:
+        id:  \d+
+
+hecommerce_paymentmethod_update:
+    path:     /paymentmethod/{id}/update
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:update" }
+    methods:  [POST, PUT]
+    requirements:
+        id:  \d+
+        
+hecommerce_paymentmethod_delete:
+    path:     /paymentmethod/{id}/delete
+    defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:delete" }
+    methods:  [POST, DELETE]
+    requirements:
+        id:  \d+
+        

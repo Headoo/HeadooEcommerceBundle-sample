@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -40,7 +40,9 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:
+        - CoreBundle
+        - HeadooEcommerceBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -70,6 +72,15 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        #entity_managers:
+            #default:
+                #connection:       default
+                #mappings:
+                    #HeadooEcommerceBundle: ~
+                    #HeadooCoreBundle: ~
+                    #HeadooPaymentBundle: ~
+                    #HeadooContactBundle: ~
+                    #HeadooUtilityBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -78,3 +89,43 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Payum Configuration
+payum:
+    security:
+        token_storage:
+            EcommerceBundle\Entity\PaymentToken: { doctrine: orm }
+    storages:
+        EcommerceBundle\Entity\Payment: { doctrine: orm }
+    gateways:
+        offline:
+            offline: ~
+        headoo_stripe:
+            stripe_js:
+                publishable_key: 'pk_test_4Q9rtBp4oHp8fm3k6K0TvvCX'
+                secret_key: 'sk_test_4Q9rY8Ner7F2h6Tyanliz3II'
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: EcommerceBundle\Entity\User
+
+# Ecommerce Configuration
+headoo_ecommerce:
+    customergroup:
+        entity: EcommerceBundle\Entity\CustomerGroup
+    service:
+        entity: EcommerceBundle\Entity\Service
+    servicerange:
+        entity: EcommerceBundle\Entity\ServiceRange
+    pricecurrency:
+        entity: EcommerceBundle\Entity\PriceCurrency
+    paymentmethod:
+        entity: EcommerceBundle\Entity\PaymentMethod
+    ordereditem:
+        entity: EcommerceBundle\Entity\OrderedItem
+    order:
+        entity: EcommerceBundle\Entity\Order
+    confirmationemail:
+        entity: EcommerceBundle\Entity\ConfirmationEmail
+

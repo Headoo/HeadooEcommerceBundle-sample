@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div>  
+        <p>{{ 'hecommerce.management.title'|trans({}, 'management') }}</p>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>{{ 'hecommerce.management.option'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.management.actions'|trans({}, 'management') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ 'hecommerce.management.customergroup'|trans({}, 'management') }}</td>
+                <td>
+                    <a href="{{ path('hecommerce_customergroup') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ 'hecommerce.management.service'|trans({}, 'management') }}</td>
+                <td>
+                    <a href="{{ path('hecommerce_service') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ 'hecommerce.management.servicerange'|trans({}, 'management') }}</td>
+                <td>
+                    <a href="{{ path('hecommerce_servicerange') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ 'hecommerce.management.pricecurrency.pl'|trans({}, 'management') }}</td>
+                <td>
+                    <a href="{{ path('hecommerce_pricecurrency') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ 'hecommerce.management.paymentmethod'|trans({}, 'management') }}</td>
+                <td>
+                    <a href="{{ path('hecommerce_paymentmethod') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
