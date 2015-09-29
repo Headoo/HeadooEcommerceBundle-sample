@@ -86,13 +86,17 @@ class StoreController extends Controller
 
         $userMessage        = $this->verifyUserDetails();
 
-        $deleteForm         = $this->get('hecommerce.order.controller')->createDeleteForm($order->getId());
+        if ($order) {
+            $deleteForm     = $this->get('hecommerce.order.controller')->createDeleteForm($order->getId())->createView();
+        } else {
+            $deleteForm     = null;
+        }
         
         return array(
             'order'         => $order,
             'orderedItems'  => $orderedItems,
             'userMessage'   => $userMessage,
-            'delete_form'   => $deleteForm->createView(),
+            'delete_form'   => $deleteForm,
         );
     }
     

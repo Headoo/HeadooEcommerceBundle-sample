@@ -36,6 +36,12 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -100,7 +106,7 @@ payum:
     gateways:
         offline:
             offline: ~
-        headoo_stripe:
+        stripe:
             stripe_js:
                 publishable_key: 'pk_test_4Q9rtBp4oHp8fm3k6K0TvvCX'
                 secret_key: 'sk_test_4Q9rY8Ner7F2h6Tyanliz3II'
@@ -109,6 +115,12 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: EcommerceBundle\Entity\User
+    registration:
+        form:
+            type: hecommerce_user_registration
+    profile:
+        form:
+            type: hecommerce_user_profile
 
 # Ecommerce Configuration
 headoo_ecommerce:

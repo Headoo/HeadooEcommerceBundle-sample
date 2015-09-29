@@ -5,6 +5,7 @@ namespace EcommerceBundle\Entity;
 use EcommerceBundle\Entity\CustomerGroup;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -29,6 +30,15 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your first name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The first name is too short.",
+     *     maxMessage="The first name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $firstName;
 
@@ -36,6 +46,15 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your last name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The last name is too short.",
+     *     maxMessage="The last name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $lastName;
 
@@ -43,6 +62,8 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     *
+     * @Assert\MaxLength(50)
      */
     protected $phone;
 
@@ -50,6 +71,15 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your address.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The address is too short.",
+     *     maxMessage="The address is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $address;
 
@@ -57,6 +87,15 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="zip_code", type="string", length=255, nullable=true)
+     *
+     * @Assert\NotBlank(message="Please enter your zip code.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The zip code is too short.",
+     *     maxMessage="The zip code is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $zipCode;
 
@@ -64,6 +103,14 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     *
+     * @Assert\Length(
+     *     min=2,
+     *     max=255,
+     *     minMessage="The city is too short.",
+     *     maxMessage="The city is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $city;
 
@@ -71,6 +118,9 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     *
+     * @Assert\Country
+     * @Assert\NotBlank(message="Please enter your country.", groups={"Registration", "Profile"})
      */
     protected $country;
 
@@ -78,7 +128,7 @@ class User extends BaseUser
      * @ORM\ManyToOne(targetEntity="CustomerGroup")
      * @ORM\JoinColumn(nullable=false)
      */
-    protected $customerGroup = 0;
+    protected $customerGroup;
 
     /**
      * Get id

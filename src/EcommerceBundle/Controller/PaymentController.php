@@ -25,13 +25,13 @@ class PaymentController extends Controller
     {
         $gatewayName = 'headoo_stripe';
 
-        $storage = $this->get('payum')->getStorage('Headoo\EcommerceBundle\Entity\Payment');
+        $storage = $this->get('payum')->getStorage('EcommerceBundle\Entity\Payment');
         
         $order = $this->get('hecommerce.order.manager')->loadOrderForConnectedUser();
         
         $payment = $storage->create();
         $payment->setNumber($order->getId());
-        $payment->setCurrencyCode($order->getUser()->getReseller()->getPriceCurrency()->getCode());
+        $payment->setCurrencyCode($order->getUser()->getCustomerGroup()->getPriceCurrency()->getCode());
         $payment->setTotalAmount($order->getTotalPaymentDue() * 100); // 123 = 1.23 EUR
         $payment->setDescription('Headoo Picture Marketing');
         $payment->setClientId($order->getUser()->getId());
@@ -121,19 +121,19 @@ class PaymentController extends Controller
     }
     
     /**
-     * Reseller Payment
+     * Offline Payment
      */   
-    public function prepareResellerAction()
+    public function prepareOfflineAction()
     {
         $gatewayName = 'offline';
 
-        $storage = $this->get('payum')->getStorage('Headoo\EcommerceBundle\Entity\Payment');
+        $storage = $this->get('payum')->getStorage('EcommerceBundle\Entity\Payment');
 
         $order = $this->get('hecommerce.order.manager')->loadOrderForConnectedUser();
         
         $payment = $storage->create();
         $payment->setNumber($order->getId());
-        $payment->setCurrencyCode($order->getUser()->getReseller()->getPriceCurrency()->getCode());
+        $payment->setCurrencyCode($order->getUser()->getCustomerGroup()->getPriceCurrency()->getCode());
         $payment->setTotalAmount($order->getTotalPaymentDue() * 100); // 123 = 1.23 EUR
         $payment->setDescription('Headoo Picture Marketing');
         $payment->setClientId($order->getUser()->getId());
@@ -144,7 +144,7 @@ class PaymentController extends Controller
         $captureToken = $this->get('payum.security.token_factory')->createCaptureToken(
             $gatewayName, 
             $payment, 
-            'hecommerce_payment_done_reseller' // the route to redirect after capture
+            'hecommerce_payment_done_offline' // the route to redirect after capture
         );
 
         return $this->redirect($captureToken->getTargetUrl());    
@@ -152,9 +152,9 @@ class PaymentController extends Controller
 
     
     /**
-     * Reseller Payment done
+     * Offline Payment done
      */   
-    public function doneResellerAction(Request $request)
+    public function doneOfflineAction(Request $request)
     {
         $token = $this->get('payum.security.http_request_verifier')->verify($request);
 
@@ -172,7 +172,7 @@ class PaymentController extends Controller
         
         $orderManager = $this->get('hecommerce.order.manager');
         $order = $orderManager->loadOrderForConnectedUser();
-        $paymentMethod = $this->get('hecommerce.paymentmethod.manager')->loadByName('reseller');
+        $paymentMethod = $this->get('hecommerce.paymentmethod.manager')->loadByName('offline');
         //$payment = $status->getFirstModel();
 
         if ($status->getValue() == 'captured')

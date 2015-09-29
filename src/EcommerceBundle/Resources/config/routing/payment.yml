@@ -10,13 +10,13 @@ hecommerce_payment_done_stripe:
     defaults: { _controller: "HeadooEcommerceBundle:Payment:doneStripe" }
     methods:  GET
 
-hecommerce_payment_prepare_reseller:
-    path:     /store/payment/reseller/prepare
-    defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareReseller" }
+hecommerce_payment_prepare_offline:
+    path:     /store/payment/offline/prepare
+    defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareOffline" }
     methods:  GET
 
-hecommerce_payment_done_reseller:
-    path:     /store/payment/reseller/done
-    defaults: { _controller: "HeadooEcommerceBundle:Payment:doneReseller" }
+hecommerce_payment_done_offline:
+    path:     /store/payment/offline/done
+    defaults: { _controller: "HeadooEcommerceBundle:Payment:doneOffline" }
     methods:  GET
         

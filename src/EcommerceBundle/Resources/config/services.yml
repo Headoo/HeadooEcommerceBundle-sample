@@ -25,6 +25,19 @@ services:
         tags:
             - { name: form.type, alias: headoo_ecommercebundle_paymentmethod }
         arguments: [ %headoo_ecommerce.paymentmethod.entity% ]
+
+    #Form Types FOS User Bundle
+    hecommerce.form.registration:
+        class: EcommerceBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: hecommerce_user_registration }
+        arguments: [ %headoo_ecommerce.customergroup.entity% ]
+    hecommerce.form.profile:
+        class: EcommerceBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: hecommerce_user_profile }
+        arguments: [ %headoo_ecommerce.customergroup.entity% ]
+
     #Managers
     hecommerce.service.manager:
         class: EcommerceBundle\Model\ServiceManager
