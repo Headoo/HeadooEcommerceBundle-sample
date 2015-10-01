@@ -3,6 +3,7 @@
 namespace EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PriceCurrency
@@ -25,6 +26,8 @@ class PriceCurrency
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=50)
+     *
+     * @Assert\Currency
      */
     protected $code;
 

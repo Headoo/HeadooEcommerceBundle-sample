@@ -3,6 +3,7 @@
 namespace EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * PaymentMethod
@@ -25,6 +26,8 @@ class PaymentMethod
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=50)
+     *
+     * @Assert\MaxLength(30)
      */
     protected $name;
 

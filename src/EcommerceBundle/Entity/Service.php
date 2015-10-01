@@ -5,6 +5,7 @@ namespace EcommerceBundle\Entity;
 use EcommerceBundle\Entity\ServiceRange;
 use EcommerceBundle\Entity\CustomerGroup;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Service
@@ -27,6 +28,8 @@ class Service
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=50)
+     *
+     * @Assert\MaxLength(50)
      */
     protected $name;
     
@@ -34,6 +37,8 @@ class Service
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     *
+     * @Assert\MaxLength(500)
      */
     protected $description;
     
@@ -41,6 +46,8 @@ class Service
      * @var integer
      *
      * @ORM\Column(name="price", type="integer")
+     *
+     * @Assert\MaxLength(500)
      */
     protected $price;
     

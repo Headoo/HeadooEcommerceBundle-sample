@@ -3,6 +3,7 @@
 namespace EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ServiceRange
@@ -25,6 +26,8 @@ class ServiceRange
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=50)
+     *
+     * @Assert\MaxLength(50)
      */
     protected $name;
 
