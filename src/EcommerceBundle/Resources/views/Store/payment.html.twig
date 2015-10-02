@@ -1,12 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::Store/base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
 
     <h1>{{ 'hecommerce.management.paymentmethod'|trans({}, 'management') }}</h1>
     {% if order is empty %} 
         {{ 'hecommerce.store.emptycart'|trans({}, 'store') }}
     {% else %}
-        <table>
+        <table class="table">
            <tbody> 
                 {% for method in paymentMethods %}
                    <tr>
@@ -21,8 +21,9 @@
                 {% endfor %}
            </tbody>           
         </table>
-        <br>
-        <a href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.backtosummary'|trans({}, 'store') }}</a>
+        <div class="col-sm-4 col-sm-offset-8 text-right">
+            <a href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.backtosummary'|trans({}, 'store') }}</a>
+        </div>
     {% endif %}
 
-{% endblock %}
+{% endblock hecommerce_content %}

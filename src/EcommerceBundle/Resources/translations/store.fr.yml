@@ -3,7 +3,7 @@ hecommerce:
         title: "Magasin"
         addcart: "Ajouter au panier"
         actions: "Actions"
-        checkcart: "Mon panier"
+        checkcart: "Panier"
         agree: "J'accèpte les conditions de vente"
         checkout: "Passer la commande"
         summary: "Récapitulatif"

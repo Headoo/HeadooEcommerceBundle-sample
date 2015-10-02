@@ -1,10 +1,10 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::Store/base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
 
     <h1>{{ 'hecommerce.store.title'|trans({}, 'store') }}</h1>
     
-    <table>
+    <table class="table">
        <thead> 
            <tr>
                <th>{{ 'hecommerce.store.service'|trans({}, 'store') }}</th>
@@ -32,6 +32,7 @@
     <div>
         <p><a href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.checkcart'|trans({}, 'store') }}</a> ({{ quantity }})</p>
         <p><b>{{ 'hecommerce.store.total'|trans({}, 'store') }}:</b> {{ total|localizedcurrency(customerGroup.priceCurrency.code) }}</p>
-    </div>            
-{% endblock %}
+    </div>
+
+{% endblock hecommerce_content %}
 

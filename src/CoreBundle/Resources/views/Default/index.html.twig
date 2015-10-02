@@ -1,7 +1,39 @@
-<a href="{{ path('hecommerce_store_buy') }}">Store</a>
+{% extends 'HeadooEcommerceBundle::layout.html.twig' %}
 
-<a href="{{ path('fos_user_security_login') }}">Login</a>
+{% block hecommerce_content %}
 
-<a href="{{ path('fos_user_registration_register') }}">Register</a>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <div class="row">
+                    <div class="col-sm-4 text-left">
+                        <a href="{{ path('core_index') }}">Home</a>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-4 text-right">
+                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4 text-center">
+                        <a href="{{ path('hecommerce_store_buy') }}"><h4>Bienvenu au HeadooEcommerceBundle !</h4></a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-sm-4 text-left">
+                        <a href="{{ path('core_index') }}">Home</a>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <a href="{{ path('fos_user_security_login') }}">Login</a>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <a href="{{ path('fos_user_registration_register') }}">Register</a>
+                    </div>
+                </div>
+            {% endif %}
 
-<a href="{{ path('fos_user_security_logout') }}">Logout</a>
+{% endblock hecommerce_content %}
+
+
+

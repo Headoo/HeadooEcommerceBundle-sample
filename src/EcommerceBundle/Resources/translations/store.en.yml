@@ -3,7 +3,7 @@ hecommerce:
         title: "Store"
         addcart: "Add to cart"
         actions: "Actions"
-        checkcart: "My cart"
+        checkcart: "Cart"
         agree: "I agree to the terms of sale"
         checkout: "Proceed to checkout"
         summary: "Summary"

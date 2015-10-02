@@ -28,7 +28,10 @@ class CustomerGroup
      *
      * @ORM\Column(name="name", type="string", length=50)
      *
-     * @Assert\MaxLength(30)
+     * @Assert\Length(
+     *     max=50,
+     *     maxMessage="The name is too long."
+     * )
      */
     protected $name;
     

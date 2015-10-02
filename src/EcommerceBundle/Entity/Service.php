@@ -29,7 +29,10 @@ class Service
      *
      * @ORM\Column(name="name", type="string", length=50)
      *
-     * @Assert\MaxLength(50)
+     * @Assert\Length(
+     *     max=50,
+     *     maxMessage="The name is too long."
+     * )
      */
     protected $name;
     
@@ -38,7 +41,10 @@ class Service
      *
      * @ORM\Column(name="description", type="text")
      *
-     * @Assert\MaxLength(500)
+     * @Assert\Length(
+     *     max=500,
+     *     maxMessage="The name is too long."
+     * )
      */
     protected $description;
     
@@ -47,7 +53,10 @@ class Service
      *
      * @ORM\Column(name="price", type="integer")
      *
-     * @Assert\MaxLength(500)
+     * @Assert\Length(
+     *     max=10,
+     *     maxMessage="The price is too long."
+     * )
      */
     protected $price;
     

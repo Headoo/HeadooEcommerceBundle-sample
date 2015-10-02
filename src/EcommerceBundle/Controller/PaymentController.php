@@ -23,7 +23,7 @@ class PaymentController extends Controller
      */  
     public function prepareStripeAction(Request $request)
     {
-        $gatewayName = 'headoo_stripe';
+        $gatewayName = 'stripe';
 
         $storage = $this->get('payum')->getStorage('EcommerceBundle\Entity\Payment');
         

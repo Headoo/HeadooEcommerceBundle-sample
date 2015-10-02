@@ -18,12 +18,12 @@ class RegistrationType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName');
-        $builder->add('lastName');
-        $builder->add('address');
-        $builder->add('zipCode');
-        $builder->add('city');
-        $builder->add('country');
+        $builder->add('firstName', 'text');
+        $builder->add('lastName', 'text');
+        $builder->add('address', 'textarea');
+        $builder->add('zipCode', 'text');
+        $builder->add('city', 'text');
+        $builder->add('country', 'country', array('placeholder' => 'Choose an option'));
         $builder->add('customerGroup', 'entity', array(
             'class'         =>  $this->customerGroupEntity,
             'data_class'    =>  $this->customerGroupEntity,

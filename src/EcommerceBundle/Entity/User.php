@@ -63,7 +63,11 @@ class User extends BaseUser
      *
      * @ORM\Column(name="phone", type="string", length=20, nullable=true)
      *
-     * @Assert\MaxLength(15)
+     * @Assert\Length(
+     *     max=20,
+     *     maxMessage="The phone is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     protected $phone;
 
@@ -120,7 +124,10 @@ class User extends BaseUser
      * @ORM\Column(name="country", type="string", length=50, nullable=true)
      *
      * @Assert\Country
-     * @Assert\NotBlank(message="Please enter your country.", groups={"Registration", "Profile"})
+     * @Assert\NotBlank(
+     *      message="Please enter your country.",
+     *      groups={"Registration", "Profile"}
+     * )
      */
     protected $country;
 

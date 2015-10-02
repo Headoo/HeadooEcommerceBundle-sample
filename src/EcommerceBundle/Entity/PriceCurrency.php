@@ -25,7 +25,7 @@ class PriceCurrency
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=50)
+     * @ORM\Column(name="code", type="string", length=3)
      *
      * @Assert\Currency
      */

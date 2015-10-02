@@ -25,9 +25,12 @@ class PaymentMethod
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=50)
+     * @ORM\Column(name="name", type="string", length=30)
      *
-     * @Assert\MaxLength(30)
+     * @Assert\Length(
+     *     max=30,
+     *     maxMessage="The name is too long."
+     * )
      */
     protected $name;
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                {% block fos_login_content %}
+                {% endblock fos_login_content %}
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+                {% block hecommerce_content %}
+                {% endblock hecommerce_content %}
+            </div>
+        </div>
+    </body>
+</html>

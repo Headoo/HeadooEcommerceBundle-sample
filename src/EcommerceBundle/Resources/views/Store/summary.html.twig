@@ -1,12 +1,12 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::Store/base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
 
     <h1>{{ 'hecommerce.store.summary'|trans({}, 'store') }}</h1>
     {% if order is empty %} 
         {{ 'hecommerce.store.emptycart'|trans({}, 'store') }}
     {% else %}
-        <table>
+        <table class="table">
            <thead> 
                <tr>
                    <th>{{ 'hecommerce.store.service'|trans({}, 'store') }}</th>
@@ -31,17 +31,28 @@
                </tr>
            </tfoot>
         </table>
-        <br>
         {% if userMessage is empty %}
-            <a href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.checkout'|trans({}, 'store') }}</a>
             {{ form(delete_form) }}
-            <br><br>
+            <div class="row">
+                <div class="col-sm-4 text-left">
+                    <a href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.backtostore'|trans({}, 'store') }}</a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-right">
+                    <a href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.checkout'|trans({}, 'store') }}</a>
+                </div>
+            </div>
         {% else %}
-            <p>{{ userMessage }}</p>
-            <a href="{{ path('fos_user_profile_edit') }}">{{ 'hecommerce.store.useredit'|trans({}, 'store') }}</a><br><br>
+            <div class="row">
+                <div class="col-sm-4 text-left">
+                    <a href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.backtostore'|trans({}, 'store') }}</a>
+                </div>
+                <div class="col-sm-4 col-sm-offset-4 text-rigth">
+                    <p>{{ userMessage }}</p>
+                    <a href="{{ path('fos_user_profile_edit') }}">{{ 'hecommerce.store.useredit'|trans({}, 'store') }}</a>
+                </div>
+            </div>
         {% endif %}
-        
-        <a href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.backtostore'|trans({}, 'store') }}</a>
+
     {% endif %}
 
-{% endblock %}
+{% endblock hecommerce_content %}
