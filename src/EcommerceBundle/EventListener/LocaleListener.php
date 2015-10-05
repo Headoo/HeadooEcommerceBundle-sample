@@ -26,15 +26,10 @@ class LocaleListener implements EventSubscriberInterface
         if ($locale = $request->attributes->get('_locale')) {
             $request->getSession()->set('_locale', $locale);
         } else {
-            // if no explicit locale has been set on this request, use one from the session
+            // if no explicit locale has been set on this request, use the preferred language the user chose for his browser
             $requirements = ['_locale' => ['en', 'fr']];
             $request->setLocale($language = $request->getPreferredLanguage($requirements['_locale']));
         }
-
-        /*if (!$request->get('_locale')) {
-            $request->setLocale($language = $request->getPreferredLanguage($requirements['_locale']));
-            $this->get('translator')->setLocale($language);
-        }*/
     }
 
     public static function getSubscribedEvents()
