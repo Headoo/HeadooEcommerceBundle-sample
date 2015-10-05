@@ -1,45 +1,55 @@
 #customer group routes
 
 hecommerce_customergroup:
-    path: /customergroup
+    path: /{_locale}/customergroup
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:index }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_customergroup_create:
-    path: /customergroup
+    path: /{_locale}/customergroup
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:create }
     methods:  POST
+    requirements:
+        _locale: "%hecommerce.locales%"
     
 hecommerce_customergroup_new:
-    path: /customergroup/new
+    path: /{_locale}/customergroup/new
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:new }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
     
 hecommerce_customergroup_show:
-    path: /customergroup/{id}
+    path: /{_locale}/customergroup/{id}
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:show }
     methods: GET
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
     
 hecommerce_customergroup_edit:
-    path: /customergroup/{id}/edit
+    path: /{_locale}/customergroup/{id}/edit
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:edit }
     methods: GET
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
     
 hecommerce_customergroup_update:
-    path: /customergroup/{id}
+    path: /{_locale}/customergroup/{id}
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:update }
     methods: [POST, PUT]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
     
 hecommerce_customergroup_delete:
-    path: /customergroup/{id}
+    path: /{_locale}/customergroup/{id}
     defaults:  { _controller: HeadooEcommerceBundle:CustomerGroup:delete }
     methods: [POST, DELETE]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
     

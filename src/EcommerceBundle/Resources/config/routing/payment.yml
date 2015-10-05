@@ -1,22 +1,30 @@
 #payment routes
 
 hecommerce_payment_prepare_stripe:
-    path:     /store/payment/stripe/prepare
+    path:     /{_locale}/store/payment/stripe/prepare
     defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareStripe" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_payment_done_stripe:
-    path:     /store/payment/done
+    path:     /{_locale}/store/payment/done
     defaults: { _controller: "HeadooEcommerceBundle:Payment:doneStripe" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_payment_prepare_offline:
-    path:     /store/payment/offline/prepare
+    path:     /{_locale}/store/payment/offline/prepare
     defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareOffline" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_payment_done_offline:
-    path:     /store/payment/offline/done
+    path:     /{_locale}/store/payment/offline/done
     defaults: { _controller: "HeadooEcommerceBundle:Payment:doneOffline" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
         

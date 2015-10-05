@@ -1,11 +1,15 @@
-core:
-    resource: "@CoreBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+### Core routing ###
+
+core_index:
+    path: /{_locale}/
+    defaults:  { _controller: CoreBundle:Default:index }
+    methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 ### Headoo Ecommerce routing ###
 

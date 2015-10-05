@@ -3,18 +3,21 @@
 namespace CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="core_index")
+     * Displays the homepage
+     *
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $name = 'test';
-        return array('name' => $name);
+        return array(
+
+        );
     }
 }

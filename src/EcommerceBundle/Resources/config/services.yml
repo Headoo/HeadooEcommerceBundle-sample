@@ -1,4 +1,27 @@
 services:
+
+    #Controllers
+    hecommerce.order.controller:
+        class: EcommerceBundle\Controller\OrderController
+        arguments: [ %headoo_ecommerce.order.entity%, @form.factory, @translator, @doctrine.orm.entity_manager, @router ]
+
+    #Managers
+    hecommerce.service.manager:
+        class: EcommerceBundle\Model\ServiceManager
+        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.service.entity% ]
+    hecommerce.paymentmethod.manager:
+        class: EcommerceBundle\Model\PaymentMethodManager
+        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.paymentmethod.entity% ]
+    hecommerce.ordereditem.manager:
+        class: EcommerceBundle\Model\OrderedItemManager
+        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.ordereditem.entity% ]
+    hecommerce.order.manager:
+        class: EcommerceBundle\Model\OrderManager
+        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.order.entity%, @service_container ]
+    hecommerce.confirmationemail.manager:
+        class: EcommerceBundle\Model\ConfirmationEmailManager
+        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.confirmationemail.entity% ]
+
     #Form Types
     hecommerce.form.type.customergroup:
         class: EcommerceBundle\Form\CustomerGroupType
@@ -38,24 +61,10 @@ services:
             - { name: form.type, alias: hecommerce_user_profile }
         arguments: [ %headoo_ecommerce.customergroup.entity% ]
 
-    #Managers
-    hecommerce.service.manager:
-        class: EcommerceBundle\Model\ServiceManager
-        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.service.entity% ]
-    hecommerce.paymentmethod.manager:
-        class: EcommerceBundle\Model\PaymentMethodManager
-        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.paymentmethod.entity% ]
-    hecommerce.ordereditem.manager:
-        class: EcommerceBundle\Model\OrderedItemManager
-        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.ordereditem.entity% ]
-    hecommerce.order.manager:
-        class: EcommerceBundle\Model\OrderManager
-        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.order.entity%, @service_container ]
-    hecommerce.confirmationemail.manager:
-        class: EcommerceBundle\Model\ConfirmationEmailManager
-        arguments: [ @doctrine.orm.entity_manager, %headoo_ecommerce.confirmationemail.entity% ]
-    #Controllers
-    hecommerce.order.controller:
-        class: EcommerceBundle\Controller\OrderController
-        arguments: [ %headoo_ecommerce.order.entity%, @form.factory, @translator, @doctrine.orm.entity_manager, @router ]
+    #Event Listener
+    hecommerce.locale_listener:
+            class: EcommerceBundle\EventListener\LocaleListener
+            arguments: ["%kernel.default_locale%"]
+            tags:
+                - { name: kernel.event_subscriber }
          

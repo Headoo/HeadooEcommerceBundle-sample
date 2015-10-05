@@ -1,26 +1,33 @@
 #store routes
     
 hecommerce_store_buy:
-    path: /store/buy
+    path: /{_locale}/store/buy
     defaults:  { _controller: HeadooEcommerceBundle:Store:buy }
     methods:  [GET]
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 #id = Service Id  
 hecommerce_store_cart:
-    path: /store/cart/{id}
+    path: /{_locale}/store/cart/{id}
     defaults:  { _controller: HeadooEcommerceBundle:Store:cart }
     methods:  [GET, POST]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
         
 hecommerce_store_summary:
-    path: /store/summary
+    path: /{_locale}/store/summary
     defaults:  { _controller: HeadooEcommerceBundle:Store:summary }
     methods:  [GET]
+    requirements:
+        _locale: "%hecommerce.locales%"
     
 hecommerce_store_payment:
-    path: /store/payment
+    path: /{_locale}/store/payment
     defaults:  { _controller: HeadooEcommerceBundle:Store:payment }
     methods:  [GET]
+    requirements:
+        _locale: "%hecommerce.locales%"
 
     

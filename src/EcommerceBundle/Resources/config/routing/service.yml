@@ -1,45 +1,55 @@
 #service routes
 
 hecommerce_service:
-    path:     /service
+    path:     /{_locale}/service
     defaults: { _controller: "HeadooEcommerceBundle:Service:index" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_service_show:
-    path:     /service/{id}/show
+    path:     /{_locale}/service/{id}/show
     defaults: { _controller: "HeadooEcommerceBundle:Service:show" }
     methods:  GET
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
 
 hecommerce_service_new:
-    path:     /service/new
+    path:     /{_locale}/service/new
     defaults: { _controller: "HeadooEcommerceBundle:Service:new" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_service_create:
-    path:     /service/create
+    path:     /{_locale}/service/create
     defaults: { _controller: "HeadooEcommerceBundle:Service:create" }
     methods:  POST
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_service_edit:
-    path:     /service/{id}/edit
+    path:     /{_locale}/service/{id}/edit
     defaults: { _controller: "HeadooEcommerceBundle:Service:edit" }
     methods:  GET
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
 
 hecommerce_service_update:
-    path:     /service/{id}/update
+    path:     /{_locale}/service/{id}/update
     defaults: { _controller: "HeadooEcommerceBundle:Service:update" }
     methods:  [POST, PUT]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
         
 hecommerce_service_delete:
-    path:     /service/{id}/delete
+    path:     /{_locale}/service/{id}/delete
     defaults: { _controller: "HeadooEcommerceBundle:Service:delete" }
     methods:  [POST, DELETE]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
         

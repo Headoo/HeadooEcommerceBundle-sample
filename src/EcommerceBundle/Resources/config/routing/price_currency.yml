@@ -1,45 +1,55 @@
 #service routes
 
 hecommerce_pricecurrency:
-    path:     /pricecurrency
+    path:     /{_locale}/pricecurrency
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:index" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_pricecurrency_show:
-    path:     /pricecurrency/{id}/show
+    path:     /{_locale}/pricecurrency/{id}/show
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:show" }
     methods:  GET
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
 
 hecommerce_pricecurrency_new:
-    path:     /pricecurrency/new
+    path:     /{_locale}/pricecurrency/new
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:new" }
     methods:  GET
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_pricecurrency_create:
-    path:     /pricecurrency/create
+    path:     /{_locale}/pricecurrency/create
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:create" }
     methods:  POST
+    requirements:
+        _locale: "%hecommerce.locales%"
 
 hecommerce_pricecurrency_edit:
-    path:     /pricecurrency/{id}/edit
+    path:     /{_locale}/pricecurrency/{id}/edit
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:edit" }
     methods:  GET
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
 
 hecommerce_pricecurrency_update:
-    path:     /pricecurrency/{id}/update
+    path:     /{_locale}/pricecurrency/{id}/update
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:update" }
     methods:  [POST, PUT]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
         
 hecommerce_pricecurrency_delete:
-    path:     /pricecurrency/{id}/delete
+    path:     /{_locale}/pricecurrency/{id}/delete
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:delete" }
     methods:  [POST, DELETE]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
         

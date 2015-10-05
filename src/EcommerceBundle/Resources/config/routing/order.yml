@@ -1,10 +1,11 @@
 #order routes
 
 hecommerce_order_delete:
-    path: /order/{id}
+    path: /{_locale}/order/{id}
     defaults:  { _controller: hecommerce.order.controller:deleteAction }
     methods: [POST, DELETE]
     requirements:
         id:  \d+
+        _locale: "%hecommerce.locales%"
 
     
