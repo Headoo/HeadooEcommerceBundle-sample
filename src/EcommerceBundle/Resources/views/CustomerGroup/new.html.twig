@@ -1,15 +1,13 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::base.html.twig' %}
 
-{% block body -%}
-    <h1>{{ 'hecommerce.customergroup.create'|trans({}, 'management') }}</h1>
+{% block hecommerce_content %}
+
+    <h4>{{ 'hecommerce.customergroup.create'|trans({}, 'management') }}</h4>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('hecommerce_customergroup') }}">
-            {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
-        </a>
-    </li>
-</ul>
-{% endblock %}
+    <a class="btn btn-default" href="{{ path('hecommerce_customergroup') }}">
+        {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
+    </a>
+
+{% endblock hecommerce_content %}

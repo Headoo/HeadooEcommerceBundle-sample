@@ -17,7 +17,7 @@ class PriceCurrencyController extends Controller
     
     protected function getClass()
     {
-        $this->class = $this->container->getParameter('headoo_ecommerce.pricecurrency.class');
+        $this->class = $this->container->getParameter('headoo_ecommerce.pricecurrency.entity');
         return $this->class;
     }
 

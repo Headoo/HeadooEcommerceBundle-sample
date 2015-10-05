@@ -27,7 +27,7 @@ class CustomerGroupType extends AbstractType
             ->add('name')
             ->add('priceCurrency', 'entity', array(
                 'class' => $this->priceCurrencyClass,
-                'property' => 'name'
+                'property' => 'code'
             ))
         ;
     }

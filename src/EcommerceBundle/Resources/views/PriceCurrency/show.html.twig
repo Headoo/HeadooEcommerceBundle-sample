@@ -1,6 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
+
     <h1>{{ 'hecommerce.management.pricecurrency.pl'|trans({}, 'management') }}</h1>
 
     <table class="record_properties">
@@ -29,4 +30,5 @@
         </li>
         <li>{{ form(delete_form) }}</li>
     </ul>
-{% endblock %}
+
+{% endblock hecommerce_content %}

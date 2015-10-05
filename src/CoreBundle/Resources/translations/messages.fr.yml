@@ -1,0 +1,8 @@
+home:
+    title: "Accueil"
+    login: "Se connecter"
+    register: "S'enregistrer"
+    welcome: "Bienvenu au HeadooEcommerceBundle !"
+    store:
+        manager: "Gérer la boutique"
+        visit: "Visiter la boutique"

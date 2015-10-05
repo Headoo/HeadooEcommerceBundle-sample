@@ -17,7 +17,7 @@ class PaymentMethodController extends Controller
     
     protected function getClass()
     {
-        $this->class = $this->container->getParameter('headoo_ecommerce.paymentmethod.class');
+        $this->class = $this->container->getParameter('headoo_ecommerce.paymentmethod.entity');
         return $this->class;
     }
 

@@ -1,15 +1,17 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
+
     <h1>{{ 'hecommerce.service.create'|trans({}, 'management') }}</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('hecommerce_service') }}">
-            {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
-        </a>
-    </li>
-</ul>
-{% endblock %}
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('hecommerce_service') }}">
+                {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
+            </a>
+        </li>
+    </ul>
+
+{% endblock hecommerce_content %}

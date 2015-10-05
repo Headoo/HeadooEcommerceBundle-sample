@@ -19,7 +19,7 @@ class ServiceRangeController extends Controller
     
     protected function getClass()
     {
-        $this->class = $this->container->getParameter('headoo_ecommerce.servicerange.class');
+        $this->class = $this->container->getParameter('headoo_ecommerce.servicerange.entity');
         return $this->class;
     }
 

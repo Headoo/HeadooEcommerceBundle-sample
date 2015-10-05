@@ -1,7 +1,7 @@
 hecommerce:
     management:
         id: "id"
-        title: "Headoo Store Management"
+        title: "Store Management"
         name: "Name"
         code: "Code"
         symbol: "Symbole"
@@ -27,23 +27,23 @@ hecommerce:
         backtothelist: "Back to the list"
         createnewentry: "Create a new entry"
     customergroup:
-        list: "Customers Group List"
+        list: "Customers Group"
         edit: "Customer Group Edition"
         create: "Customer Group Creation"
     pricecurrency:
-        list: "List of Price Currencies"
+        list: "Price Currencies"
         edit: "Price Currency Edition"
         create: "Price Currency Creation"
     service:
-        list: "List of Services"
+        list: "Services"
         edit: "Service Edition"
         create: "Service Creation"
     servicerange:
-        list: "List of Service Ranges"
+        list: "Service Ranges"
         edit: "Service Range Edition"
         create: "Service Range Creation"
     paymentmethod:
-        list: "List of Payment Methods"
+        list: "Payment Methods"
         edit: "Payment Method Edition"
         create: "Payment Method Creation"
 

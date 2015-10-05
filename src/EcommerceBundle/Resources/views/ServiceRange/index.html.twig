@@ -1,6 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
+
     <h1>{{ 'hecommerce.servicerange.list'|trans({}, 'management') }}</h1>
 
     <table class="records_list">
@@ -31,11 +32,12 @@
         </tbody>
     </table>
 
-        <ul>
+    <ul>
         <li>
             <a href="{{ path('hecommerce_servicerange_new') }}">
                 {{ 'hecommerce.management.createnewentry'|trans({}, 'management') }}
             </a>
         </li>
     </ul>
-    {% endblock %}
+
+{% endblock hecommerce_content %}

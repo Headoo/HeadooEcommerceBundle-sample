@@ -1,0 +1,8 @@
+home:
+    title: "Home"
+    login: "Login"
+    register: "Register"
+    welcome: "Welcome to HeadooEcommerceBundle !"
+    store:
+        manager: "Manage the store"
+        visit: "Visit the store"

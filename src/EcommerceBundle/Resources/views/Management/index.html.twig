@@ -1,11 +1,11 @@
-{% extends '::base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::base.html.twig' %}
 
-{% block body -%}
+{% block hecommerce_content %}
 
     <div>  
         <p>{{ 'hecommerce.management.title'|trans({}, 'management') }}</p>
     </div>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>{{ 'hecommerce.management.option'|trans({}, 'management') }}</th>
@@ -46,4 +46,4 @@
         </tbody>
     </table>
 
-{% endblock %}
+{% endblock hecommerce_content %}

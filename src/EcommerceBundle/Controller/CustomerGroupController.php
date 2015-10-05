@@ -20,7 +20,7 @@ class CustomerGroupController extends Controller
     
     protected function getClass()
     {
-        $this->class = $this->container->getParameter('headoo_ecommerce.customergroup.class');
+        $this->class = $this->container->getParameter('headoo_ecommerce.customergroup.entity');
         return $this->class;
     }
 

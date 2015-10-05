@@ -19,7 +19,7 @@ class ServiceController extends Controller
     
     private function getClass()
     {
-        $this->class = $this->container->getParameter('headoo_ecommerce.service.class');
+        $this->class = $this->container->getParameter('headoo_ecommerce.service.entity');
         return $this->class;
     }
 
