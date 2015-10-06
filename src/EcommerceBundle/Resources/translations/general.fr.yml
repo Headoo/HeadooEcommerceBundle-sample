@@ -1,0 +1,5 @@
+hecommerce:
+    general:
+        home: "Accueil"
+        login: "Se connecter"
+        register: "S'enregistrer"

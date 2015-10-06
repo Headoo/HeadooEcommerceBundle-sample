@@ -2,17 +2,17 @@
 
 {% block hecommerce_content %}
 
-    <h1>{{ 'hecommerce.service.list'|trans({}, 'management') }}</h1>
+    <h4>{{ 'hecommerce.service.pl'|trans({}, 'management') }}</h4>
 
-    <table class="records_list">
+    <table class="table">
         <thead>
             <tr>
                 <th>{{ 'hecommerce.management.id'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.name'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.description'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.price'|trans({}, 'management') }}</th>
-                <th>{{ 'hecommerce.management.customergroup'|trans({}, 'management') }}</th>
-                <th>{{ 'hecommerce.management.servicerange'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.customergroup.sing'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.servicerange.sing'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.actions'|trans({}, 'management') }}</th>
             </tr>
         </thead>
@@ -26,26 +26,24 @@
                 <td>{{ entity.customerGroup.name }}</td>
                 <td>{{ entity.serviceRange.name }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('hecommerce_service_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('hecommerce_service_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
-                    </li>
-                </ul>
+                    <a class="btn btn-default" href="{{ path('hecommerce_service_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
+                    <a class="btn btn-default" href="{{ path('hecommerce_service_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('hecommerce_service_new') }}">
-                {{ 'hecommerce.management.createnewentry'|trans({}, 'management') }} 
+    <div class="row">
+        <div class="col-sm-4 text-left">
+            <a class="btn btn-default"  href="{{ path('hecommerce_management') }}">
+                {{ 'hecommerce.management.back'|trans({}, 'management') }}
             </a>
-        </li>
-    </ul>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4 text-right">
+            <a class="btn btn-default" href="{{ path('hecommerce_service_new') }}">
+                {{ 'hecommerce.management.create'|trans({}, 'management') }}
+            </a>
+        </div>
+    </div>
 
 {% endblock hecommerce_content %}

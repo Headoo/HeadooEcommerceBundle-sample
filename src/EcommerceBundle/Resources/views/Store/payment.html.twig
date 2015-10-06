@@ -1,8 +1,8 @@
-{% extends 'HeadooEcommerceBundle::Store/base.html.twig' %}
+{% extends 'HeadooEcommerceBundle::base.html.twig' %}
 
 {% block hecommerce_content %}
 
-    <h1>{{ 'hecommerce.management.paymentmethod'|trans({}, 'management') }}</h1>
+    <h4>{{ 'hecommerce.paymentmethod.pl'|trans({}, 'management') }}</h4>
     {% if order is empty %} 
         {{ 'hecommerce.store.emptycart'|trans({}, 'store') }}
     {% else %}

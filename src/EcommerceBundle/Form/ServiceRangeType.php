@@ -4,15 +4,15 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ServiceRangeType extends AbstractType
 {
-    protected $serviceRangeClass;
+    protected $serviceRangeEntity;
 	
-	public function __construct ($serviceRangeClass)
+	public function __construct ($serviceRangeEntity)
 	{
-	    $this->serviceRangeClass = $serviceRangeClass;
+	    $this->serviceRangeEntity = $serviceRangeEntity;
 	}
 	
     /**
@@ -22,17 +22,18 @@ class ServiceRangeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', 'text', array('label' => 'hecommerce.management.name'))
         ;
     }
-    
+
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->serviceRangeClass
+            'data_class' => $this->serviceRangeEntity,
+            'translation_domain' => 'management'
         ));
     }
 
@@ -41,6 +42,6 @@ class ServiceRangeType extends AbstractType
      */
     public function getName()
     {
-        return 'headoo_ecommercebundle_servicerange';
+        return 'hecommerce_servicerange_form';
     }
 }

@@ -4,6 +4,7 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /*
  * This file overrides FOSUserBundle ProfileFormType
@@ -18,12 +19,12 @@ class ProfileType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName');
-        $builder->add('lastName');
-        $builder->add('address');
-        $builder->add('zipCode');
-        $builder->add('city');
-        $builder->add('country');
+        $builder->add('firstName', text, array('label' => 'hecommerce.management.firstname'));
+        $builder->add('lastName', text, array('label' => 'hecommerce.management.name'));
+        $builder->add('address', text, array('label' => 'hecommerce.management.address'));
+        $builder->add('zipCode', text, array('label' => 'hecommerce.management.zipcode'));
+        $builder->add('city', text, array('label' => 'hecommerce.management.city'));
+        $builder->add('country', text, array('label' => 'hecommerce.management.country'));
         $builder->add('customerGroup', 'entity', array(
             'class'         =>  $this->customerGroupEntity,
             'data_class'    =>  $this->customerGroupEntity,
@@ -31,13 +32,23 @@ class ProfileType extends AbstractType
             'expanded'      =>  true,
             'multiple'      =>  false,
             'required'      =>  true,
-            'label'         =>  'I\'m interested in'
+            'label'         =>  'hecommerce.management.interestedin'
+        ));
+    }
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'translation_domain' => 'management'
         ));
     }
 
     public function getParent()
     {
-        return 'fos_user_registration';
+        return 'fos_user_profile';
     }
 
     public function getName()

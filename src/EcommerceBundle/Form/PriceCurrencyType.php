@@ -4,15 +4,15 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PriceCurrencyType extends AbstractType
 {
-	protected $priceCurrencyClass;
+	protected $priceCurrencyEntity;
 	
-	public function __construct ($priceCurrencyClass)
+	public function __construct ($priceCurrencyEntity)
 	{
-	    $this->priceCurrencyClass = $priceCurrencyClass;
+	    $this->priceCurrencyEntity = $priceCurrencyEntity;
 	}
 
     /**
@@ -22,17 +22,18 @@ class PriceCurrencyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code', 'currency')
+            ->add('code', 'currency', array('label' => 'hecommerce.management.code'))
         ;
     }
-    
+
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->priceCurrencyClass
+            'data_class' => $this->priceCurrencyEntity,
+            'translation_domain' => 'management'
         ));
     }
 
@@ -41,6 +42,6 @@ class PriceCurrencyType extends AbstractType
      */
     public function getName()
     {
-        return 'headoo_ecommercebundle_pricecurrency';
+        return 'hecommerce_pricecurrency_form';
     }
 }

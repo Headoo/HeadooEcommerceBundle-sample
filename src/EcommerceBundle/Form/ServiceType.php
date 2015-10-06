@@ -4,19 +4,19 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ServiceType extends AbstractType
 {
-	protected $customerGroupClass;
-	protected $serviceClass;
-	protected $serviceRangeClass;
+	protected $customerGroupEntity;
+	protected $serviceEntity;
+	protected $serviceRangeEntity;
 	
-	public function __construct ($customerGroupClass, $serviceClass, $serviceRangeClass)
+	public function __construct ($customerGroupEntity, $serviceEntity, $serviceRangeEntity)
 	{
-	    $this->customerGroupClass = $customerGroupClass;
-	    $this->serviceClass = $serviceClass;
-	    $this->serviceRangeClass = $serviceRangeClass;
+	    $this->customerGroupEntity = $customerGroupEntity;
+	    $this->serviceEntity = $serviceEntity;
+	    $this->serviceRangeEntity = $serviceRangeEntity;
 	}
 
     /**
@@ -26,27 +26,29 @@ class ServiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('price')
+            ->add('name', 'text', array('label' => 'hecommerce.management.name'))
+            ->add('description', 'textarea', array('label' => 'hecommerce.management.description'))
+            ->add('price', 'integer', array('label' => 'hecommerce.management.price'))
             ->add('customerGroup', 'entity', array(
-                'class' => $this->customerGroupClass,
-                'property' => 'name'
+                'class' => $this->customerGroupEntity,
+                'property' => 'name',
+                'label' => 'hecommerce.customergroup.sing'
             ))
             ->add('serviceRange', 'entity', array(
-                'class' => $this->serviceRangeClass,
-                'property' => 'name'
-            ))
-        ;
+                'class' => $this->serviceRangeEntity,
+                'property' => 'name',
+                'label' => 'hecommerce.servicerange.sing'
+            ));
     }
-    
+
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->serviceClass
+            'data_class' => $this->serviceEntity,
+            'translation_domain' => 'management'
         ));
     }
 
@@ -55,6 +57,6 @@ class ServiceType extends AbstractType
      */
     public function getName()
     {
-        return 'headoo_ecommercebundle_service';
+        return 'hecommerce_service_form';
     }
 }

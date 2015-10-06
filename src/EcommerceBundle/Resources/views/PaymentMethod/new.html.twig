@@ -2,16 +2,12 @@
 
 {% block hecommerce_content %}
 
-    <h1>{{ 'hecommerce.paymentmethod.create'|trans({}, 'management') }}</h1>
+    <h4>{{ 'hecommerce.paymentmethod.create'|trans({}, 'management') }}</h4>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('hecommerce_paymentmethod') }}">
-            {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
-        </a>
-    </li>
-</ul>
+    <a class="btn btn-default" href="{{ path('hecommerce_paymentmethod') }}">
+        {{ 'hecommerce.management.back'|trans({}, 'management') }}
+    </a>
 
 {% endblock hecommerce_content %}

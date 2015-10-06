@@ -4,6 +4,7 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /*
  * This file overrides FOSUserBundle RegistrationFormType
@@ -18,12 +19,12 @@ class RegistrationType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName', 'text');
-        $builder->add('lastName', 'text');
-        $builder->add('address', 'textarea');
-        $builder->add('zipCode', 'text');
-        $builder->add('city', 'text');
-        $builder->add('country', 'country', array('placeholder' => 'Choose an option'));
+        $builder->add('firstName', 'text', array('label' => 'hecommerce.management.firstname'));
+        $builder->add('lastName', 'text', array('label' => 'hecommerce.management.name'));
+        $builder->add('address', 'text', array('label' => 'hecommerce.management.address'));
+        $builder->add('zipCode', 'text', array('label' => 'hecommerce.management.zipcode'));
+        $builder->add('city', 'text', array('label' => 'hecommerce.management.city'));
+        $builder->add('country', 'text', array('label' => 'hecommerce.management.country'));
         $builder->add('customerGroup', 'entity', array(
             'class'         =>  $this->customerGroupEntity,
             'data_class'    =>  $this->customerGroupEntity,
@@ -31,7 +32,17 @@ class RegistrationType extends AbstractType
             'expanded'      =>  true,
             'multiple'      =>  false,
             'required'      =>  true,
-            'label'         =>  'I\'m interested in'
+            'label'         =>  'hecommerce.management.interestedin'
+        ));
+    }
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'translation_domain' => 'management'
         ));
     }
 

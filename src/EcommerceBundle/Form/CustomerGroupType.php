@@ -4,17 +4,17 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CustomerGroupType extends AbstractType
 {
-	protected $customerGroupClass;
-	protected $priceCurrencyClass;
+	protected $customerGroupEntity;
+	protected $priceCurrencyEntity;
 	
-	public function __construct ($customerGroupClass, $priceCurrencyClass)
+	public function __construct ($customerGroupEntity, $priceCurrencyEntity)
 	{
-	    $this->customerGroupClass = $customerGroupClass;
-	    $this->priceCurrencyClass = $priceCurrencyClass;
+	    $this->customerGroupEntity = $customerGroupEntity;
+	    $this->priceCurrencyEntity = $priceCurrencyEntity;
 	}
 
     /**
@@ -24,21 +24,23 @@ class CustomerGroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', 'text', array('label' => 'hecommerce.management.name'))
             ->add('priceCurrency', 'entity', array(
-                'class' => $this->priceCurrencyClass,
-                'property' => 'code'
+                'class' => $this->priceCurrencyEntity,
+                'property' => 'code',
+                'label' => 'hecommerce.pricecurrency.sing'
             ))
         ;
     }
     
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->customerGroupClass
+            'data_class' => $this->customerGroupEntity,
+            'translation_domain' => 'management'
         ));
     }
 
@@ -47,6 +49,6 @@ class CustomerGroupType extends AbstractType
      */
     public function getName()
     {
-        return 'headoo_ecommercebundle_customergroup';
+        return 'hecommerce_customergroup_form';
     }
 }

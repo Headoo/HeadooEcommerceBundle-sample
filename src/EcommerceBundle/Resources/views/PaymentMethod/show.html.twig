@@ -2,9 +2,9 @@
 
 {% block hecommerce_content %}
 
-    <h1>{{ 'hecommerce.management.paymentmethod'|trans({}, 'management') }}</h1>
+    <h4>{{ entity.name }}</h4>
 
-    <table class="record_properties">
+    <table class="table">
         <tbody>
             <tr>
                 <th>{{ 'hecommerce.management.id'|trans({}, 'management') }}</th>
@@ -17,18 +17,22 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('hecommerce_paymentmethod') }}">
-            {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('hecommerce_paymentmethod_edit', { 'id': entity.id }) }}">
-            {{ 'hecommerce.management.edit'|trans({}, 'management') }}
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="row">
+        <div class="col-sm-4 text-left">
+            <a class="btn btn-default"  href="{{ path('hecommerce_paymentmethod') }}">
+                {{ 'hecommerce.management.back'|trans({}, 'management') }}
+            </a>
+        </div>
+        <div class="col-sm-4 text-center">
+            <a class="btn btn-default"  href="{{ path('hecommerce_paymentmethod_edit', { 'id': entity.id }) }}">
+                {{ 'hecommerce.management.edit'|trans({}, 'management') }}
+            </a>
+        </div>
+        <div class="col-sm-4 text-right">
+            {{ form_start(delete_form) }}
+            {{ form_widget(delete_form.submit, { 'attr': {'class': 'btn btn-danger', 'type': 'button'} }) }}
+            {{ form_end(delete_form) }}
+        </div>
+    </div>
 
 {% endblock hecommerce_content %}

@@ -4,15 +4,15 @@ namespace EcommerceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PaymentMethodType extends AbstractType
 {
-	protected $paymentMethodClass;
+	protected $paymentMethodEntity;
 	
-	public function __construct ($paymentMethodClass)
+	public function __construct ($paymentMethodEntity)
 	{
-	    $this->paymentMethodClass = $paymentMethodClass;
+	    $this->paymentMethodEntity = $paymentMethodEntity;
 	}
 
     /**
@@ -22,17 +22,18 @@ class PaymentMethodType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', 'text', array('label' => 'hecommerce.management.name'))
         ;
     }
-    
+
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => $this->paymentMethodClass
+            'data_class' => $this->paymentMethodEntity,
+            'translation_domain' => 'management'
         ));
     }
 
@@ -41,6 +42,6 @@ class PaymentMethodType extends AbstractType
      */
     public function getName()
     {
-        return 'headoo_ecommercebundle_paymentmethod';
+        return 'hecommerce_paymentmethod_form';
     }
 }

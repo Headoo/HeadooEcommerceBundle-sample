@@ -2,12 +2,12 @@
 
 {% block hecommerce_content %}
 
-    <h4>{{ 'hecommerce.customergroup.list'|trans({}, 'management') }}</h4>
+    <h4>{{ 'hecommerce.customergroup.pl'|trans({}, 'management') }}</h4>
 
-    <table class="table records_list">
+    <table class="table">
         <thead>
             <tr>
-                <th>{{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.management.id'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.name'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.actions'|trans({}, 'management') }}</th>
             </tr>
@@ -25,8 +25,17 @@
         {% endfor %}
         </tbody>
     </table>
-    <a class="btn btn-default" href="{{ path('hecommerce_customergroup_new') }}">
-        {{ 'hecommerce.management.backtothelist'|trans({}, 'management') }}
-    </a>
+    <div class="row">
+        <div class="col-sm-4 text-left">
+            <a class="btn btn-default"  href="{{ path('hecommerce_management') }}">
+                {{ 'hecommerce.management.back'|trans({}, 'management') }}
+            </a>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4 text-right">
+            <a class="btn btn-default" href="{{ path('hecommerce_customergroup_new') }}">
+                {{ 'hecommerce.management.create'|trans({}, 'management') }}
+            </a>
+        </div>
+    </div>
 
 {% endblock hecommerce_content %}
