@@ -23,7 +23,8 @@
         "payum/offline": "0.15.*@dev",
         "payum/stripe": "0.15.*@dev",
         "payum/payum-bundle": "0.15.*@dev",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "gedmo/doctrine-extensions": "2.4@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

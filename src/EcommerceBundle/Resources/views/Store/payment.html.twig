@@ -11,8 +11,8 @@
                 {% for method in paymentMethods %}
                    <tr>
                        <th>
-                            {% set paymentMethodImg = method.name %}
-                            <img src="/images/{{ paymentMethodImg }}.png" width="80px" alt="my alt of image" class="pull-left">
+                           {% set paymentMethodImg = method.name %}
+                           <img src="{{ asset('@EcommerceBundle/Resources/public/images/' ~ paymentMethodImg ~ '.png') }}" width="80px" alt="payment method" class="pull-left">
                        </th>
                        <td>
                             <a href="{{ path('hecommerce_payment_prepare_' ~ method.name) }}">{{ 'hecommerce.store.choosepayment'|trans({}, 'store') }}</a>

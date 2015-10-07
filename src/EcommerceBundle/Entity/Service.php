@@ -4,6 +4,8 @@ namespace EcommerceBundle\Entity;
 
 use EcommerceBundle\Entity\ServiceRange;
 use EcommerceBundle\Entity\CustomerGroup;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -12,8 +14,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="headoo_ecommerce_service")
  * @ORM\Entity(repositoryClass="EcommerceBundle\Entity\ServiceRepository")
+ *
+ * @Gedmo\TranslationEntity(class="EcommerceBundle\Entity\Translation\ServiceTranslation")
  */
-class Service 
+class Service implements Translatable
 {
     /**
      * @var integer
@@ -27,6 +31,8 @@ class Service
     /**
      * @var string
      *
+     * @Gedmo\Translatable
+     *
      * @ORM\Column(name="name", type="string", length=50)
      *
      * @Assert\Length(
@@ -38,6 +44,8 @@ class Service
     
     /**
      * @var string
+     *
+     * @Gedmo\Translatable
      *
      * @ORM\Column(name="description", type="text")
      *
@@ -71,6 +79,14 @@ class Service
      * @ORM\JoinColumn(nullable=false)
      */
     protected $serviceRange = 0;
+
+    /**
+     * Post locale
+     * Used locale to override Translation listener's locale
+     *
+     * @Gedmo\Locale
+     */
+    protected $locale;
     
     public function __toString()
     {
@@ -203,5 +219,13 @@ class Service
         return $this->serviceRange;
     }
 
-
+    /**
+     * Set translatable locale
+     *
+     * @param string $locale
+     */
+    public function setTranslatableLocale($locale)
+    {
+        $this->locale = $locale;
+    }
 }

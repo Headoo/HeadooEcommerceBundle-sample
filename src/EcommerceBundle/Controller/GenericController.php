@@ -78,7 +78,7 @@ class GenericController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm($entity)
+    protected function createCreateForm($entity)
     {
         $submitTranslation = $this->get('translator')->trans('hecommerce.management.ok', array(), 'management');
 
