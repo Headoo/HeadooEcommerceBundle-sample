@@ -54,17 +54,21 @@ services:
         class: EcommerceBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: hecommerce_user_registration }
-        arguments: [ %headoo_ecommerce.customergroup.entity% ]
+        arguments: [ %headoo_ecommerce.customergroup.entity%, %headoo_ecommerce.pricecurrency.entity% ]
     hecommerce.form.profile:
         class: EcommerceBundle\Form\ProfileType
         tags:
             - { name: form.type, alias: hecommerce_user_profile }
-        arguments: [ %headoo_ecommerce.customergroup.entity% ]
+        arguments: [ %headoo_ecommerce.customergroup.entity%, %headoo_ecommerce.pricecurrency.entity% ]
 
     #Event Listener
     hecommerce.locale_listener:
             class: EcommerceBundle\EventListener\LocaleListener
             arguments: ["%kernel.default_locale%"]
+            tags:
+                - { name: kernel.event_subscriber }
+    hecommerce.fos_registration_listener:
+            class: EcommerceBundle\EventListener\FosRegistrationListener
             tags:
                 - { name: kernel.event_subscriber }
          

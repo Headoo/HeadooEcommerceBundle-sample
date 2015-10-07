@@ -8,6 +8,7 @@ hecommerce:
         zipcode: "Zip Code"
         city: "City"
         country: "Country"
+        language: "Language"
         code: "Code"
         symbol: "Symbole"
         description: "Description"

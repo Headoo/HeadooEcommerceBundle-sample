@@ -2,10 +2,11 @@
 
 namespace EcommerceBundle\Entity;
 
-use EcommerceBundle\Entity\CustomerGroup;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use EcommerceBundle\Entity\CustomerGroup;
+use EcommerceBundle\Entity\PriceCurrency;
 
 /**
  * User
@@ -130,6 +131,20 @@ class User extends BaseUser
      * )
      */
     protected $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="language", type="string", length=10, nullable=false)
+     *
+     */
+    protected $language;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PriceCurrency")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    protected $priceCurrency;
 
     /**
      * @ORM\ManyToOne(targetEntity="CustomerGroup")
@@ -299,6 +314,50 @@ class User extends BaseUser
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set language
+     *
+     * @param string $language
+     *
+     * @return User
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    /**
+     * Get language
+     *
+     * @return string
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * Set priceCurrency
+     *
+     * @param string $priceCurrency
+     *
+     * @return PriceCurrency
+     */
+    public function setPriceCurrency($priceCurrency)
+    {
+        $this->priceCurrency = $priceCurrency;
+    }
+
+    /**
+     * Get priceCurrency
+     *
+     * @return string
+     */
+    public function getPriceCurrency()
+    {
+        return $this->priceCurrency;
     }
 
     /**

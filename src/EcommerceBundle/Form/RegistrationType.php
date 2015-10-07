@@ -13,8 +13,11 @@ class RegistrationType extends AbstractType
 {
     private $customerGroupEntity;
 
-    public function __construct($customerGroupEntity){
-        $this->customerGroupEntity = $customerGroupEntity;
+    private $priceCurrencyEntity;
+
+    public function __construct($customerGroupEntity, $priceCurrencyEntity){
+        $this->customerGroupEntity  = $customerGroupEntity;
+        $this->priceCurrencyEntity        = $priceCurrencyEntity;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -24,7 +27,16 @@ class RegistrationType extends AbstractType
         $builder->add('address', 'text', array('label' => 'hecommerce.management.address'));
         $builder->add('zipCode', 'text', array('label' => 'hecommerce.management.zipcode'));
         $builder->add('city', 'text', array('label' => 'hecommerce.management.city'));
-        $builder->add('country', 'text', array('label' => 'hecommerce.management.country'));
+        $builder->add('country', 'country', array('label' => 'hecommerce.management.country'));
+        $builder->add('priceCurrency', 'entity', array(
+            'class'         =>  $this->priceCurrencyEntity,
+            'data_class'    =>  $this->priceCurrencyEntity,
+            'choice_label'  =>  'code',
+            'expanded'      =>  false,
+            'multiple'      =>  false,
+            'required'      =>  true,
+            'label'         =>  'hecommerce.pricecurrency.sing'
+        ));
         $builder->add('customerGroup', 'entity', array(
             'class'         =>  $this->customerGroupEntity,
             'data_class'    =>  $this->customerGroupEntity,
