@@ -7,7 +7,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    hecommerce.locales: |en|fr
+    hecommerce.routing.locales: |en|fr
+    hecommerce.form.locales: [en, fr]
 
 framework:
     #esi:             ~
@@ -44,14 +45,10 @@ services:
         class: Twig_Extensions_Extension_Intl
         tags:
             - { name: twig.extension }
-    gedmo.listener.translatable:
-        class: Gedmo\Translatable\TranslatableListener
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-        calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
-            - [ setDefaultLocale, [ %locale% ] ]
-            - [ setTranslationFallback, [ true ] ]
+
+a2lix_translation_form:
+    locales: %hecommerce.form.locales%
+    default_locale: %locale%
 
 # Assetic Configuration
 assetic:

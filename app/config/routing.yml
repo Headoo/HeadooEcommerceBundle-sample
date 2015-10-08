@@ -6,10 +6,10 @@ app:
 
 core_index:
     path: /{_locale}/
-    defaults:  { _controller: CoreBundle:Default:index }
+    defaults:  { _controller: "CoreBundle:Default:index" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 ### Headoo Ecommerce routing ###
 

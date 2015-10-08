@@ -5,7 +5,7 @@ hecommerce_store_buy:
     defaults:  { _controller: HeadooEcommerceBundle:Store:buy }
     methods:  [GET]
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 #id = Service Id  
 hecommerce_store_cart:
@@ -14,20 +14,20 @@ hecommerce_store_cart:
     methods:  [GET, POST]
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
         
 hecommerce_store_summary:
     path: /{_locale}/store/summary
     defaults:  { _controller: HeadooEcommerceBundle:Store:summary }
     methods:  [GET]
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
     
 hecommerce_store_payment:
     path: /{_locale}/store/payment
     defaults:  { _controller: HeadooEcommerceBundle:Store:payment }
     methods:  [GET]
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
     

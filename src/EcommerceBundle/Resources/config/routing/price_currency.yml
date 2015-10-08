@@ -5,7 +5,7 @@ hecommerce_pricecurrency:
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:index" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_pricecurrency_show:
     path:     /{_locale}/pricecurrency/{id}/show
@@ -13,21 +13,21 @@ hecommerce_pricecurrency_show:
     methods:  GET
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_pricecurrency_new:
     path:     /{_locale}/pricecurrency/new
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:new" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_pricecurrency_create:
     path:     /{_locale}/pricecurrency/create
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:create" }
     methods:  POST
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_pricecurrency_edit:
     path:     /{_locale}/pricecurrency/{id}/edit
@@ -35,7 +35,7 @@ hecommerce_pricecurrency_edit:
     methods:  GET
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_pricecurrency_update:
     path:     /{_locale}/pricecurrency/{id}/update
@@ -43,7 +43,7 @@ hecommerce_pricecurrency_update:
     methods:  [POST, PUT]
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
         
 hecommerce_pricecurrency_delete:
     path:     /{_locale}/pricecurrency/{id}/delete
@@ -51,5 +51,5 @@ hecommerce_pricecurrency_delete:
     methods:  [POST, DELETE]
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
         

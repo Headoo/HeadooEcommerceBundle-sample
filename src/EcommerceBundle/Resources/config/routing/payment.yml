@@ -5,26 +5,26 @@ hecommerce_payment_prepare_stripe:
     defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareStripe" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_payment_done_stripe:
     path:     /{_locale}/store/payment/done
     defaults: { _controller: "HeadooEcommerceBundle:Payment:doneStripe" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_payment_prepare_offline:
     path:     /{_locale}/store/payment/offline/prepare
     defaults: { _controller: "HeadooEcommerceBundle:Payment:prepareOffline" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_payment_done_offline:
     path:     /{_locale}/store/payment/offline/done
     defaults: { _controller: "HeadooEcommerceBundle:Payment:doneOffline" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
         

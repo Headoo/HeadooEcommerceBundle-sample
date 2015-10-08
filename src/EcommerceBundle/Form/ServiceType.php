@@ -26,8 +26,19 @@ class ServiceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array('label' => 'hecommerce.management.name'))
-            ->add('description', 'textarea', array('label' => 'hecommerce.management.description'))
+            ->add('translations', 'a2lix_translations', array(
+                'label' => ' ',
+                'fields'    => array(
+                    'name'   => array(
+                        'field_type' => 'text',
+                        'label' => 'hecommerce.management.name'
+                    ),
+                    'description'   => array(
+                        'field_type' => 'textarea',
+                        'label' => 'hecommerce.management.description',
+                    )
+                )
+            ))
             ->add('price', 'integer', array('label' => 'hecommerce.management.price'))
             ->add('customerGroup', 'entity', array(
                 'class' => $this->customerGroupEntity,

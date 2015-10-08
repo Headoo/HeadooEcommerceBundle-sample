@@ -2,6 +2,7 @@
 
 namespace EcommerceBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -97,7 +98,7 @@ class GenericController extends Controller
      *
      * @Template()
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
         $entity= $this->getEntity();
         $entity = new $entity;

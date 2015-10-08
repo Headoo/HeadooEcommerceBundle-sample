@@ -5,4 +5,4 @@ hecommerce_management:
     defaults: { _controller: "HeadooEcommerceBundle:Management:index" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"

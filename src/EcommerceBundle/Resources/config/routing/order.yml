@@ -6,6 +6,6 @@ hecommerce_order_delete:
     methods: [POST, DELETE]
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
     

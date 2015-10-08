@@ -5,7 +5,7 @@ hecommerce_service:
     defaults: { _controller: "HeadooEcommerceBundle:Service:index" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_service_show:
     path:     /{_locale}/service/{id}/show
@@ -13,21 +13,21 @@ hecommerce_service_show:
     methods:  GET
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_service_new:
     path:     /{_locale}/service/new
     defaults: { _controller: "HeadooEcommerceBundle:Service:new" }
     methods:  GET
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_service_create:
     path:     /{_locale}/service/create
     defaults: { _controller: "HeadooEcommerceBundle:Service:create" }
     methods:  POST
     requirements:
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_service_edit:
     path:     /{_locale}/service/{id}/edit
@@ -35,7 +35,7 @@ hecommerce_service_edit:
     methods:  GET
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
 
 hecommerce_service_update:
     path:     /{_locale}/service/{id}/update
@@ -43,7 +43,7 @@ hecommerce_service_update:
     methods:  [POST, PUT]
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
         
 hecommerce_service_delete:
     path:     /{_locale}/service/{id}/delete
@@ -51,5 +51,5 @@ hecommerce_service_delete:
     methods:  [POST, DELETE]
     requirements:
         id:  \d+
-        _locale: "%hecommerce.locales%"
+        _locale: "%hecommerce.routing.locales%"
         
