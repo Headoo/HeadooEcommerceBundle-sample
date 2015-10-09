@@ -4,8 +4,6 @@
 
     {% if template == 'new' %}
 
-        <h4>{{ 'hecommerce.customergroup.create'|trans({}, 'management') }}</h4>
-
         {{ form(form) }}
 
         <a class="btn btn-default" href="{{ path('hecommerce_customergroup') }}">
@@ -13,8 +11,6 @@
         </a>
 
     {% elseif template == 'show' %}
-
-        <h4>{{ entity.name }}</h4>
 
         <table class="table">
             <tbody>
@@ -51,8 +47,6 @@
         </div>
 
     {% elseif template == 'edit' %}
-
-        <h4>{{ entity.name }}</h4>
 
         {{ form(edit_form) }}
 
