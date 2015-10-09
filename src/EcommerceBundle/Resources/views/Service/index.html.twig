@@ -20,8 +20,8 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('hecommerce_service_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.description }}</td>
+                <td>{{ entity.translate(app.request.locale).getName }}</td>
+                <td>{{ entity.translate(app.request.locale).getDescription }}</td>
                 <td>{{ entity.price }}</td>
                 <td>{{ entity.customerGroup.name }}</td>
                 <td>{{ entity.serviceRange.name }}</td>

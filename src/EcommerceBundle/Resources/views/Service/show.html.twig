@@ -2,7 +2,7 @@
 
 {% block hecommerce_content %}
 
-    <h4>{{ entity.name }}</h4>
+    <h4>{{ entity.translate(app.request.locale).getName }}</h4>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,11 @@
             </tr>
             <tr>
                 <th>{{ 'hecommerce.management.name'|trans({}, 'management') }}</th>
-                <td>{{ entity.name }}</td>
+                <td>{{ entity.translate(app.request.locale).getName }}</td>
             </tr>
             <tr>
                 <th>{{ 'hecommerce.management.description'|trans({}, 'management') }}</th>
-                <td>{{ entity.description }}</td>
+                <td>{{ entity.translate(app.request.locale).getDescription }}</td>
             </tr>
             <tr>
                 <th>{{ 'hecommerce.management.price'|trans({}, 'management') }}</th>

@@ -12,6 +12,6 @@ class ServiceController extends GenericController
 {
     public function __construct()
     {
-        parent::__construct('headoo_ecommerce.service.entity', 'service');
+        parent::__construct('headoo_ecommerce.service.entity', 'Service');
     }
 }

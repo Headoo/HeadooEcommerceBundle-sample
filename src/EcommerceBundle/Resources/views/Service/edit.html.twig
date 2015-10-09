@@ -2,7 +2,7 @@
 
 {% block hecommerce_content %}
 
-    <h4>{{ entity.name }}</h4>
+    <h4>{{ entity.translate(app.request.locale).getName }}</h4>
 
     {{ form(edit_form) }}
 

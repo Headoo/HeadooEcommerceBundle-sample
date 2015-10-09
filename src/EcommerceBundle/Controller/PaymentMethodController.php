@@ -12,6 +12,6 @@ class PaymentMethodController extends GenericController
 {
     public function __construct()
     {
-        parent::__construct('headoo_ecommerce.paymentmethod.entity', 'paymentmethod');
+        parent::__construct('headoo_ecommerce.paymentmethod.entity', 'PaymentMethod');
     }
 }

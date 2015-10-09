@@ -12,6 +12,6 @@ class CustomerGroupController extends GenericController
 {
     public function __construct()
     {
-        parent::__construct('headoo_ecommerce.customergroup.entity', 'customergroup');
+        parent::__construct('headoo_ecommerce.customergroup.entity', 'CustomerGroup');
     }
 }

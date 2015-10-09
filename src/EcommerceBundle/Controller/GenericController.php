@@ -16,12 +16,15 @@ class GenericController extends Controller
 
     protected $entityParameter;
 
+    protected $folderName;
+
     protected $entityName;
 
-    public function __construct($entityParameter, $entityName)
+    public function __construct($entityParameter, $folderName)
     {
         $this->entityParameter  = $entityParameter;
-        $this->entityName       = $entityName;
+        $this->folderName       = $folderName;
+        $this->entityName       = strtolower($this->folderName);
     }
 
     protected function getEntity()
@@ -96,7 +99,6 @@ class GenericController extends Controller
     /**
      * Displays a form to create a new entity.
      *
-     * @Template()
      */
     public function newAction(Request $request)
     {
@@ -104,16 +106,18 @@ class GenericController extends Controller
         $entity = new $entity;
         $form   = $this->createCreateForm($entity);
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+        return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
+            array(
+                'entity'    => $entity,
+                'form'      => $form->createView(),
+                'template'  => 'new'
+            )
         );
     }
 
     /**
      * Finds and displays an entity.
      *
-     * @Template()
      */
     public function showAction($id)
     {
@@ -127,16 +131,18 @@ class GenericController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+        return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
+            array(
+                'entity'    => $entity,
+                'form'      => $deleteForm->createView(),
+                'template'  => 'show'
+            )
         );
     }
 
     /**
      * Displays a form to edit an existing entity.
      *
-     * @Template()
      */
     public function editAction($id)
     {
@@ -151,10 +157,13 @@ class GenericController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+        return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
+            array(
+                'entity'    => $entity,
+                'edit_form'     => $editForm->createView(),
+                'delete_form'   => $deleteForm->createView(),
+                'template'      => 'edit'
+            )
         );
     }
 

@@ -12,6 +12,6 @@ class ServiceRangeController extends GenericController
 {
     public function __construct()
     {
-        parent::__construct('headoo_ecommerce.servicerange.entity', 'servicerange');
+        parent::__construct('headoo_ecommerce.servicerange.entity', 'ServiceRange');
     }
 }

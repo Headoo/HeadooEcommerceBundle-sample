@@ -12,6 +12,6 @@ class PriceCurrencyController extends GenericController
 {
     public function __construct()
     {
-        parent::__construct('headoo_ecommerce.pricecurrency.entity', 'pricecurrency');
+        parent::__construct('headoo_ecommerce.pricecurrency.entity', 'PriceCurrency');
     }
 }

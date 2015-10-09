@@ -22,7 +22,6 @@ class FosRegistrationListener implements EventSubscriberInterface
             FOSUserEvents::REGISTRATION_SUCCESS => 'onRegisteringUserSuccess',
         );
     }
-
     public function onRegisteringUserSuccess(FormEvent $event)
     {
         $userLanguage = $event->getRequest()->getPreferredLanguage();
