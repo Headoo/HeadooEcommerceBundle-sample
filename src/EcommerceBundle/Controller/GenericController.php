@@ -45,7 +45,9 @@ class GenericController extends Controller
         $entities = $em->getRepository($this->getEntity())->findAll();
 
         return array(
-            'entities' => $entities,
+            'entities'      => $entities,
+            'template'      => 'index',
+            'entityName'    => $this->entityName
         );
     }
 
@@ -108,9 +110,10 @@ class GenericController extends Controller
 
         return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
             array(
-                'entity'    => $entity,
-                'form'      => $form->createView(),
-                'template'  => 'new'
+                'entity'        => $entity,
+                'form'          => $form->createView(),
+                'template'      => 'new',
+                'entityName'    => $this->entityName
             )
         );
     }
@@ -133,9 +136,10 @@ class GenericController extends Controller
 
         return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
             array(
-                'entity'    => $entity,
-                'form'      => $deleteForm->createView(),
-                'template'  => 'show'
+                'entity'        => $entity,
+                'delete_form'   => $deleteForm->createView(),
+                'template'      => 'show',
+                'entityName'    => $this->entityName
             )
         );
     }
@@ -159,10 +163,11 @@ class GenericController extends Controller
 
         return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
             array(
-                'entity'    => $entity,
+                'entity'        => $entity,
                 'edit_form'     => $editForm->createView(),
                 'delete_form'   => $deleteForm->createView(),
-                'template'      => 'edit'
+                'template'      => 'edit',
+                'entityName'    => $this->entityName
             )
         );
     }
@@ -191,7 +196,6 @@ class GenericController extends Controller
     /**
      * Edits an existing entity.
      *
-     * @Template()
      */
     public function updateAction(Request $request, $id)
     {

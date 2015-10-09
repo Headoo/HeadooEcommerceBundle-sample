@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        {% endblock %}
         <meta charset="UTF-8" />
     </head>
     <body>
@@ -11,11 +13,15 @@
                 {% endblock fos_login_content %}
                 {% block fos_user_content %}
                 {% endblock fos_user_content %}
+                {% block hecommerce_breadcrumb %}
+                {% endblock hecommerce_breadcrumb %}
                 {% block hecommerce_content %}
                 {% endblock hecommerce_content %}
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>

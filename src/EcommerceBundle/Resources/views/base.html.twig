@@ -6,11 +6,11 @@
         <div class="col-sm-4 col-sm-offset-8 text-right">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
+                <a class="btn btn-default" href="{{ path('fos_user_security_logout') }}">
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>
             {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                <a class="btn btn-default" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
         </div>
         {% if app.request.hasPreviousSession %}
@@ -25,5 +25,34 @@
     </div>
 
 {% endblock fos_login_content %}
+
+{% block hecommerce_breadcrumb %}
+
+    {% if template != 'management' and template != 'store' %}
+        {% set template = 'management-' ~ template %}
+    {% endif %}
+
+    {% if template != 'management' and template != 'store' %}
+        {% set entityTitle = 'hecommerce.' ~ entityName ~ '.pl' %}
+    {% endif %}
+
+    <ol class="breadcrumb">
+        <li><a href="#">{{ 'hecommerce.general.home'|trans({}, 'general') }}</a></li>
+        {% if 'management' in template %}
+            <li><a class="active" href="{{ path('hecommerce_management') }}">{{ 'hecommerce.management.title'|trans({}, 'management') }}</a></li>
+        {% endif %}
+        {% if 'management-' in template %}
+            <li><a href="{{ path('hecommerce_' ~ entityName ) }}">{{ entityTitle|trans({}, 'management') }}</a></li>
+        {% endif %}
+        {% if template == 'management-new' %}
+            <li><a href="{{ path('hecommerce_' ~ entityName ~ '_new') }}">{{ 'hecommerce.management.create'|trans({}, 'management') }}</a></li>
+        {% elseif template == 'management-show' %}
+            <li><a href="{{ path('hecommerce_' ~ entityName ~ '_show', { 'id': entity.id } ) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a></li>
+        {% elseif template == 'management-edit' %}
+            <li><a href="{{ path('hecommerce_' ~ entityName ~ '_edit', { 'id': entity.id } ) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a></li>
+        {% endif %}
+    </ol>
+
+{% endblock hecommerce_breadcrumb %}
 
 
