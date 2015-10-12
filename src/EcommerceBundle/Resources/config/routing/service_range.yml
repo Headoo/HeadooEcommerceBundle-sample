@@ -1,40 +1,40 @@
 #service range routes
 
-hecommerce_servicerange:
+hecommerce_management_servicerange:
     path:     /{_locale}/servicerange
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:index" }
     methods:  GET
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_servicerange_show:
+hecommerce_management_servicerange_show:
     path:     /{_locale}/servicerange/{id}/show
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:show" }
     requirements:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_servicerange_new:
+hecommerce_management_servicerange_new:
     path:     /{_locale}/servicerange/new
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:new" }
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_servicerange_create:
+hecommerce_management_servicerange_create:
     path:     /{_locale}/servicerange/create
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:create" }
     methods:  POST
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_servicerange_edit:
+hecommerce_management_servicerange_edit:
     path:     /{_locale}/servicerange/{id}/edit
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:edit" }
     requirements:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_servicerange_update:
+hecommerce_management_servicerange_update:
     path:     /{_locale}/servicerange/{id}/update
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:update" }
     methods:  [POST, PUT]
@@ -42,7 +42,7 @@ hecommerce_servicerange_update:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_servicerange_delete:
+hecommerce_management_servicerange_delete:
     path:     /{_locale}/servicerange/{id}/delete
     defaults: { _controller: "HeadooEcommerceBundle:ServiceRange:delete" }
     methods:  [POST, DELETE]

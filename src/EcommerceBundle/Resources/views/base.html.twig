@@ -28,28 +28,35 @@
 
 {% block hecommerce_breadcrumb %}
 
-    {% if template != 'management' and template != 'store' %}
-        {% set template = 'management-' ~ template %}
-    {% endif %}
-
-    {% if template != 'management' and template != 'store' %}
-        {% set entityTitle = 'hecommerce.' ~ entityName ~ '.pl' %}
-    {% endif %}
-
     <ol class="breadcrumb">
         <li><a href="#">{{ 'hecommerce.general.home'|trans({}, 'general') }}</a></li>
-        {% if 'management' in template %}
+        {% if 'management' in app.request.attributes.get('_route') %}
             <li><a class="active" href="{{ path('hecommerce_management') }}">{{ 'hecommerce.management.title'|trans({}, 'management') }}</a></li>
-        {% endif %}
-        {% if 'management-' in template %}
-            <li><a href="{{ path('hecommerce_' ~ entityName ) }}">{{ entityTitle|trans({}, 'management') }}</a></li>
-        {% endif %}
-        {% if template == 'management-new' %}
-            <li><a href="{{ path('hecommerce_' ~ entityName ~ '_new') }}">{{ 'hecommerce.management.create'|trans({}, 'management') }}</a></li>
-        {% elseif template == 'management-show' %}
-            <li><a href="{{ path('hecommerce_' ~ entityName ~ '_show', { 'id': entity.id } ) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a></li>
-        {% elseif template == 'management-edit' %}
-            <li><a href="{{ path('hecommerce_' ~ entityName ~ '_edit', { 'id': entity.id } ) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a></li>
+            {% if entityName is defined %}
+                {% set entityTitle = 'hecommerce.' ~ entityName ~ '.pl' %}
+                {% if app.request.attributes.get('_route') == 'hecommerce_management_' ~ entityName %}
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName) }}">{{ entityTitle|trans({}, 'management') }}</a></li>
+                {% elseif app.request.attributes.get('_route') == 'hecommerce_management_' ~ entityName ~ '_new' %}
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName) }}">{{ entityTitle|trans({}, 'management') }}</a></li>
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName ~ '_new') }}">{{ 'hecommerce.management.create'|trans({}, 'management') }}</a></li>
+                {% elseif app.request.attributes.get('_route') == 'hecommerce_management_' ~ entityName ~ '_show' %}
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName) }}">{{ entityTitle|trans({}, 'management') }}</a></li>
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName ~ '_show', { 'id': entity.id } ) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a></li>
+                {% elseif app.request.attributes.get('_route') == 'hecommerce_management_' ~ entityName ~ '_edit' %}
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName) }}">{{ entityTitle|trans({}, 'management') }}</a></li>
+                    <li><a href="{{ path('hecommerce_management_' ~ entityName ~ '_edit', { 'id': entity.id } ) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a></li>
+                {% endif %}
+            {% endif %}
+        {%  endif %}
+        {% if 'store' in app.request.attributes.get('_route') %}
+            <li><a class="active" href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.title'|trans({}, 'store') }}</a></li>
+            {% if app.request.attributes.get('_route') == 'hecommerce_store_summary' %}
+                <li><a class="active" href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.summary'|trans({}, 'store') }}</a></li>
+            {% endif %}
+            {% if app.request.attributes.get('_route') == 'hecommerce_store_payment' %}
+                <li><a class="active" href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.summary'|trans({}, 'store') }}</a></li>
+                <li><a class="active" href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.payment'|trans({}, 'store') }}</a></li>
+            {% endif %}
         {% endif %}
     </ol>
 

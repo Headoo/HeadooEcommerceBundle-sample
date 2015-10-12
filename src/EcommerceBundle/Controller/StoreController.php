@@ -96,7 +96,7 @@ class StoreController extends Controller
             'order'         => $order,
             'orderedItems'  => $orderedItems,
             'userMessage'   => $userMessage,
-            'delete_form'   => $deleteForm,
+            'delete_form'   => $deleteForm
         );
     }
     
@@ -116,7 +116,7 @@ class StoreController extends Controller
         
         return array(
             'order'             => $order,
-            'paymentMethods'    => $paymentMethods,
+            'paymentMethods'    => $paymentMethods
         );
     }
     

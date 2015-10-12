@@ -1,13 +1,13 @@
 #service routes
 
-hecommerce_paymentmethod:
+hecommerce_management_paymentmethod:
     path:     /{_locale}/paymentmethod
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:index" }
     methods:  GET
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_paymentmethod_show:
+hecommerce_management_paymentmethod_show:
     path:     /{_locale}/paymentmethod/{id}/show
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:show" }
     methods:  GET
@@ -15,21 +15,21 @@ hecommerce_paymentmethod_show:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_paymentmethod_new:
+hecommerce_management_paymentmethod_new:
     path:     /{_locale}/paymentmethod/new
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:new" }
     methods:  GET
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_paymentmethod_create:
+hecommerce_management_paymentmethod_create:
     path:     /{_locale}/paymentmethod/create
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:create" }
     methods:  POST
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_paymentmethod_edit:
+hecommerce_management_paymentmethod_edit:
     path:     /{_locale}/paymentmethod/{id}/edit
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:edit" }
     methods:  GET
@@ -37,7 +37,7 @@ hecommerce_paymentmethod_edit:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_paymentmethod_update:
+hecommerce_management_paymentmethod_update:
     path:     /{_locale}/paymentmethod/{id}/update
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:update" }
     methods:  [POST, PUT]
@@ -45,7 +45,7 @@ hecommerce_paymentmethod_update:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
         
-hecommerce_paymentmethod_delete:
+hecommerce_management_paymentmethod_delete:
     path:     /{_locale}/paymentmethod/{id}/delete
     defaults: { _controller: "HeadooEcommerceBundle:PaymentMethod:delete" }
     methods:  [POST, DELETE]

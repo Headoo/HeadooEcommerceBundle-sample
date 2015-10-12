@@ -1,13 +1,13 @@
 #service routes
 
-hecommerce_pricecurrency:
+hecommerce_management_pricecurrency:
     path:     /{_locale}/pricecurrency
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:index" }
     methods:  GET
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_pricecurrency_show:
+hecommerce_management_pricecurrency_show:
     path:     /{_locale}/pricecurrency/{id}/show
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:show" }
     methods:  GET
@@ -15,21 +15,21 @@ hecommerce_pricecurrency_show:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_pricecurrency_new:
+hecommerce_management_pricecurrency_new:
     path:     /{_locale}/pricecurrency/new
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:new" }
     methods:  GET
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_pricecurrency_create:
+hecommerce_management_pricecurrency_create:
     path:     /{_locale}/pricecurrency/create
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:create" }
     methods:  POST
     requirements:
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_pricecurrency_edit:
+hecommerce_management_pricecurrency_edit:
     path:     /{_locale}/pricecurrency/{id}/edit
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:edit" }
     methods:  GET
@@ -37,7 +37,7 @@ hecommerce_pricecurrency_edit:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
 
-hecommerce_pricecurrency_update:
+hecommerce_management_pricecurrency_update:
     path:     /{_locale}/pricecurrency/{id}/update
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:update" }
     methods:  [POST, PUT]
@@ -45,7 +45,7 @@ hecommerce_pricecurrency_update:
         id:  \d+
         _locale: "%hecommerce.routing.locales%"
         
-hecommerce_pricecurrency_delete:
+hecommerce_management_pricecurrency_delete:
     path:     /{_locale}/pricecurrency/{id}/delete
     defaults: { _controller: "HeadooEcommerceBundle:PriceCurrency:delete" }
     methods:  [POST, DELETE]

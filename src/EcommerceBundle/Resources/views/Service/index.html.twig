@@ -17,15 +17,15 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('hecommerce_service_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('hecommerce_management_service_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.translate(app.request.locale).getName }}</td>
                 <td>{{ entity.translate(app.request.locale).getDescription }}</td>
                 <td>{{ entity.price }}</td>
                 <td>{{ entity.customerGroup.name }}</td>
                 <td>{{ entity.serviceRange.name }}</td>
                 <td>
-                    <a class="btn btn-default" href="{{ path('hecommerce_service_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
-                    <a class="btn btn-default" href="{{ path('hecommerce_service_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
+                    <a class="btn btn-default" href="{{ path('hecommerce_management_service_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
+                    <a class="btn btn-default" href="{{ path('hecommerce_management_service_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
                 </td>
             </tr>
         {% endfor %}
@@ -38,7 +38,7 @@
             </a>
         </div>
         <div class="col-sm-4 col-sm-offset-4 text-right">
-            <a class="btn btn-default" href="{{ path('hecommerce_service_new') }}">
+            <a class="btn btn-default" href="{{ path('hecommerce_management_service_new') }}">
                 {{ 'hecommerce.management.create'|trans({}, 'management') }}
             </a>
         </div>

@@ -46,7 +46,6 @@ class GenericController extends Controller
 
         return array(
             'entities'      => $entities,
-            'template'      => 'index',
             'entityName'    => $this->entityName
         );
     }
@@ -54,7 +53,6 @@ class GenericController extends Controller
     /**
      * Creates a new entity.
      *
-     * @Template()
      */
     public function createAction(Request $request)
     {
@@ -68,7 +66,7 @@ class GenericController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('hecommerce_' . $this->entityName . '_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('hecommerce_management_' . $this->entityName . '_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -89,7 +87,7 @@ class GenericController extends Controller
         $submitTranslation = $this->get('translator')->trans('hecommerce.management.ok', array(), 'management');
 
         $form = $this->createForm('hecommerce_' . $this->entityName . '_form', $entity, array(
-            'action' => $this->generateUrl('hecommerce_' . $this->entityName . '_create'),
+            'action' => $this->generateUrl('hecommerce_management_' . $this->entityName . '_create'),
             'method' => 'POST',
         ));
 
@@ -112,7 +110,6 @@ class GenericController extends Controller
             array(
                 'entity'        => $entity,
                 'form'          => $form->createView(),
-                'template'      => 'new',
                 'entityName'    => $this->entityName
             )
         );
@@ -138,7 +135,6 @@ class GenericController extends Controller
             array(
                 'entity'        => $entity,
                 'delete_form'   => $deleteForm->createView(),
-                'template'      => 'show',
                 'entityName'    => $this->entityName
             )
         );
@@ -166,7 +162,6 @@ class GenericController extends Controller
                 'entity'        => $entity,
                 'edit_form'     => $editForm->createView(),
                 'delete_form'   => $deleteForm->createView(),
-                'template'      => 'edit',
                 'entityName'    => $this->entityName
             )
         );
@@ -184,7 +179,7 @@ class GenericController extends Controller
         $submitTranslation = $this->get('translator')->trans('hecommerce.management.ok', array(), 'management');
 
         $form = $this->createForm('hecommerce_' . $this->entityName . '_form', $entity, array(
-            'action' => $this->generateUrl('hecommerce_' . $this->entityName . '_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('hecommerce_management_' . $this->entityName . '_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -214,7 +209,7 @@ class GenericController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('hecommerce_' . $this->entityName . '_show', array('id' => $id)));
+            return $this->redirect($this->generateUrl('hecommerce_management_' . $this->entityName . '_show', array('id' => $id)));
         }
 
         return array(
@@ -245,7 +240,7 @@ class GenericController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('hecommerce_' . $this->entityName));
+        return $this->redirect($this->generateUrl('hecommerce_management_' . $this->entityName));
     }
 
     /**
@@ -260,7 +255,7 @@ class GenericController extends Controller
         $submitTranslation = $this->get('translator')->trans('hecommerce.management.delete', array(), 'management');
 
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('hecommerce_' . $this->entityName . '_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('hecommerce_management_' . $this->entityName . '_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => $submitTranslation ))
             ->getForm()

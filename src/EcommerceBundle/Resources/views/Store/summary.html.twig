@@ -17,7 +17,7 @@
            <tbody> 
                 {% for item in orderedItems %}
                    <tr>
-                       <td>{{ item.service.name }}</td>
+                       <td>{{ item.service.translate(app.request.locale).getName }}</td>
                        <td>{{ item.quantity }}</td>
                        <td>{{ item.service.price|localizedcurrency(order.user.customerGroup.priceCurrency.code) }}</td>
                    </tr>
@@ -32,23 +32,19 @@
            </tfoot>
         </table>
         {% if userMessage is empty %}
-            {{ form(delete_form) }}
             <div class="row">
                 <div class="col-sm-4 text-left">
-                    <a href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.backtostore'|trans({}, 'store') }}</a>
+                    {{ form(delete_form) }}
                 </div>
                 <div class="col-sm-4 col-sm-offset-4 text-right">
-                    <a href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.checkout'|trans({}, 'store') }}</a>
+                    <a class="btn btn-default" href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.checkout'|trans({}, 'store') }}</a>
                 </div>
             </div>
         {% else %}
             <div class="row">
-                <div class="col-sm-4 text-left">
-                    <a href="{{ path('hecommerce_store_buy') }}">{{ 'hecommerce.store.backtostore'|trans({}, 'store') }}</a>
-                </div>
-                <div class="col-sm-4 col-sm-offset-4 text-rigth">
+                <div class="col-sm-4">
                     <p>{{ userMessage }}</p>
-                    <a href="{{ path('fos_user_profile_edit') }}">{{ 'hecommerce.store.useredit'|trans({}, 'store') }}</a>
+                    <a class="btn btn-default" href="{{ path('fos_user_profile_edit') }}">{{ 'hecommerce.store.useredit'|trans({}, 'store') }}</a>
                 </div>
             </div>
         {% endif %}

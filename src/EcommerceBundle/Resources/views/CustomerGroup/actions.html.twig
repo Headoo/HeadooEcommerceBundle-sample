@@ -2,15 +2,15 @@
 
 {% block hecommerce_content %}
 
-    {% if template == 'new' %}
+    {% if app.request.attributes.get('_route') == 'hecommerce_management_customergroup_new' %}
 
         {{ form(form) }}
 
-        <a class="btn btn-default" href="{{ path('hecommerce_customergroup') }}">
+        <a class="btn btn-default" href="{{ path('hecommerce_management_customergroup') }}">
             {{ 'hecommerce.management.back'|trans({}, 'management') }}
         </a>
 
-    {% elseif template == 'show' %}
+    {% elseif app.request.attributes.get('_route') == 'hecommerce_management_customergroup_show' %}
 
         <table class="table">
             <tbody>
@@ -30,12 +30,12 @@
         </table>
         <div class="row">
             <div class="col-sm-4 text-left">
-                <a class="btn btn-default"  href="{{ path('hecommerce_customergroup') }}">
+                <a class="btn btn-default"  href="{{ path('hecommerce_management_customergroup') }}">
                     {{ 'hecommerce.management.back'|trans({}, 'management') }}
                 </a>
             </div>
             <div class="col-sm-4 text-center">
-                <a class="btn btn-default"  href="{{ path('hecommerce_customergroup_edit', { 'id': entity.id }) }}">
+                <a class="btn btn-default"  href="{{ path('hecommerce_management_customergroup_edit', { 'id': entity.id }) }}">
                     {{ 'hecommerce.management.edit'|trans({}, 'management') }}
                 </a>
             </div>
@@ -46,13 +46,13 @@
             </div>
         </div>
 
-    {% elseif template == 'edit' %}
+    {% elseif app.request.attributes.get('_route') == 'hecommerce_management_customergroup_edit' %}
 
         {{ form(edit_form) }}
 
         <div class="row">
             <div class="col-sm-4 text-left">
-                <a class="btn btn-default"  href="{{ path('hecommerce_customergroup') }}">
+                <a class="btn btn-default"  href="{{ path('hecommerce_management_customergroup') }}">
                     {{ 'hecommerce.management.back'|trans({}, 'management') }}
                 </a>
             </div>

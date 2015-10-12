@@ -13,11 +13,11 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('hecommerce_servicerange_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('hecommerce_management_servicerange_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>
-                    <a class="btn btn-default" href="{{ path('hecommerce_servicerange_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
-                    <a class="btn btn-default" href="{{ path('hecommerce_servicerange_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
+                    <a class="btn btn-default" href="{{ path('hecommerce_management_servicerange_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
+                    <a class="btn btn-default" href="{{ path('hecommerce_management_servicerange_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>
                 </td>
             </tr>
         {% endfor %}
@@ -30,7 +30,7 @@
             </a>
         </div>
         <div class="col-sm-4 col-sm-offset-4 text-right">
-            <a class="btn btn-default" href="{{ path('hecommerce_servicerange_new') }}">
+            <a class="btn btn-default" href="{{ path('hecommerce_management_servicerange_new') }}">
                 {{ 'hecommerce.management.create'|trans({}, 'management') }}
             </a>
         </div>
