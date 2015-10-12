@@ -31,6 +31,7 @@ class HeadooEcommerceExtension extends Extension
         $container->setParameter('headoo_ecommerce.ordereditem.entity', $config['ordereditem']['entity']);
         $container->setParameter('headoo_ecommerce.order.entity', $config['order']['entity']);
         $container->setParameter('headoo_ecommerce.confirmationemail.entity', $config['confirmationemail']['entity']);
+        $container->setParameter('headoo_ecommerce.breadcrumb.home', $config['breadcrumb']['home']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

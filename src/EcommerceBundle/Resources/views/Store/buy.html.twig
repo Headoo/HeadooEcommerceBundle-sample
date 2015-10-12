@@ -33,7 +33,7 @@
             <p><b>{{ 'hecommerce.store.total'|trans({}, 'store') }}:</b> {{ total|localizedcurrency(customerGroup.priceCurrency.code) }}</p>
         </div>
         <div class="col-sm-4 col-sm-offset-4 text-right">
-            <a class="btn btn-default" href="{{ path('hecommerce_store_summary') }}">
+            <a class="btn btn-primary" href="{{ path('hecommerce_store_summary') }}">
                 {{ 'hecommerce.store.checkcart'|trans({}, 'store') }}
             </a>
         </div>

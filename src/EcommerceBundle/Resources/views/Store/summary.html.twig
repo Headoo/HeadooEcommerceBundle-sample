@@ -2,7 +2,6 @@
 
 {% block hecommerce_content %}
 
-    <h4>{{ 'hecommerce.store.summary'|trans({}, 'store') }}</h4>
     {% if order is empty %} 
         {{ 'hecommerce.store.emptycart'|trans({}, 'store') }}
     {% else %}
@@ -37,7 +36,7 @@
                     {{ form(delete_form) }}
                 </div>
                 <div class="col-sm-4 col-sm-offset-4 text-right">
-                    <a class="btn btn-default" href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.checkout'|trans({}, 'store') }}</a>
+                    <a class="btn btn-primary" href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.checkout'|trans({}, 'store') }}</a>
                 </div>
             </div>
         {% else %}

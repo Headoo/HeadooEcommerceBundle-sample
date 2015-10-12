@@ -35,10 +35,10 @@ framework:
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
+    debug:                  "%kernel.debug%"
+    strict_variables:       "%kernel.debug%"
     form:
-        resources: ['bootstrap_3_layout.html.twig']
+        resources:          ['bootstrap_3_layout.html.twig']
 
 services:
     twig.extension.intl:
@@ -57,6 +57,7 @@ assetic:
     bundles:
         - CoreBundle
         - HeadooEcommerceBundle
+        - FOSUserBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -148,4 +149,6 @@ headoo_ecommerce:
         entity: EcommerceBundle\Entity\Order
     confirmationemail:
         entity: EcommerceBundle\Entity\ConfirmationEmail
+    breadcrumb:
+        home:   core_index
 

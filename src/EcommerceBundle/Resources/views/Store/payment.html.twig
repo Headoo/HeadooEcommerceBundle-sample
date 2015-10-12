@@ -2,7 +2,6 @@
 
 {% block hecommerce_content %}
 
-    <h4>{{ 'hecommerce.paymentmethod.pl'|trans({}, 'management') }}</h4>
     {% if order is empty %} 
         {{ 'hecommerce.store.emptycart'|trans({}, 'store') }}
     {% else %}
@@ -12,18 +11,21 @@
                    <tr>
                        <th>
                            {% set paymentMethodImg = method.name %}
-                           <img src="{{ asset('@EcommerceBundle/Resources/public/images/' ~ paymentMethodImg ~ '.png') }}" width="80px" alt="payment method" class="pull-left">
+                           <img src="{{ asset('images/' ~ paymentMethodImg ~ '.png') }}" width="80px" alt="payment method">
+
+                           {% image '@HeadooEcommerceBundle/Resources/public/images/' ~ paymentMethodImg ~ '.jpg' output="images/your-image.jpg" %}
+                                <img src="{{ asset_url }}" alt="my alt of image" class="pull-left">
+                           {% endimage %}
                        </th>
                        <td>
-                            <a href="{{ path('hecommerce_payment_prepare_' ~ method.name) }}">{{ 'hecommerce.store.choosepayment'|trans({}, 'store') }}</a>
+                            <a class="btn btn-primary" href="{{ path('hecommerce_payment_prepare_' ~ method.name) }}">{{ 'hecommerce.store.choosepayment'|trans({}, 'store') }}</a>
                        </td>
                    </tr>
                 {% endfor %}
            </tbody>           
         </table>
-        <div class="col-sm-4 col-sm-offset-8 text-right">
-            <a href="{{ path('hecommerce_store_summary') }}">{{ 'hecommerce.store.backtosummary'|trans({}, 'store') }}</a>
-        </div>
     {% endif %}
+
+    <img src="{{ asset('@EcommerceBundle/Resources/public/images/stripe-logo.png') }}" alt="powered by stripe">
 
 {% endblock hecommerce_content %}

@@ -78,6 +78,13 @@ class Configuration implements ConfigurationInterface
 						->end()
 					->end()
 				->end()
+				->arrayNode('breadcrumb')
+					->children()
+						->scalarNode('home')
+							->defaultValue('')
+						->end()
+					->end()
+				->end()
 			->end();   
         
         return $treeBuilder;
