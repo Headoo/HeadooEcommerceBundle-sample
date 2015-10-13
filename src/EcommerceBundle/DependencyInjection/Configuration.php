@@ -85,6 +85,13 @@ class Configuration implements ConfigurationInterface
 						->end()
 					->end()
 				->end()
+				->arrayNode('store')
+					->children()
+						->scalarNode('email_sender')
+							->defaultValue('')
+						->end()
+					->end()
+				->end()
 			->end();   
         
         return $treeBuilder;

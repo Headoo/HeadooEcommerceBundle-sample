@@ -24,7 +24,13 @@ class FosRegistrationListener implements EventSubscriberInterface
     }
     public function onRegisteringUserSuccess(FormEvent $event)
     {
-        $userLanguage = $event->getRequest()->getPreferredLanguage();
+        if ($event->getRequest()->attributes->get('_locale')) {
+            $userLanguage = $event->getRequest()->attributes->get('_locale');
+        } else {
+            // if no explicit locale has been set on this request, use the preferred language the user chose for his browser
+            $userLanguage = $event->getRequest()->getPreferredLanguage();
+        }
+
         $event->getForm()->getData()->setLanguage($userLanguage);
     }
 }

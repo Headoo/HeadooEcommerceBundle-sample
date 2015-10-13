@@ -27,7 +27,7 @@ services:
         class:      EcommerceBundle\Form\CustomerGroupType
         tags:
             - { name: form.type, alias: hecommerce_customergroup_form }
-        arguments: [ %headoo_ecommerce.customergroup.entity%, %headoo_ecommerce.pricecurrency.entity% ]
+        arguments: [ %headoo_ecommerce.customergroup.entity% ]
     hecommerce.form.type.service:
         class:      EcommerceBundle\Form\ServiceType
         tags:

@@ -1,12 +1,8 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
 ### Core routing ###
 
-core_index:
+app_index:
     path: /{_locale}/
-    defaults:  { _controller: "CoreBundle:Default:index" }
+    defaults:  { _controller: "AppBundle:Default:index" }
     methods:  GET
     requirements:
         _locale: "%hecommerce.routing.locales%"

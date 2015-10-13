@@ -4,7 +4,7 @@
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <div class="row">
                     <div class="col-sm-4 text-left">
-                        <a href="{{ path('core_index') }}">{{ 'home.title'|trans() }}</a>
+                        <a href="{{ path('app_index') }}">{{ 'home.title'|trans() }}</a>
                     </div>
                     <div class="col-sm-4 col-sm-offset-4 text-right">
                         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -29,7 +29,7 @@
             {% else %}
                 <div class="row">
                     <div class="col-sm-4 text-left">
-                        <a href="{{ path('core_index') }}">{{ 'home.title'|trans() }}</a>
+                        <a href="{{ path('app_index') }}">{{ 'home.title'|trans() }}</a>
                     </div>
                     <div class="col-sm-4 text-center">
                         <a href="{{ path('fos_user_security_login') }}">{{ 'home.login'|trans() }}</a>

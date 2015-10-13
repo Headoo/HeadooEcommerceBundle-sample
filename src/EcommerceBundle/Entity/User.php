@@ -142,13 +142,13 @@ class User extends BaseUser
 
     /**
      * @ORM\ManyToOne(targetEntity="PriceCurrency")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $priceCurrency;
 
     /**
      * @ORM\ManyToOne(targetEntity="CustomerGroup")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     protected $customerGroup;
 

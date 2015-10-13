@@ -8,5 +8,4 @@ namespace EcommerceBundle\Entity;
  */
 class ServiceRangeRepository extends \Doctrine\ORM\EntityRepository
 {
-
 }

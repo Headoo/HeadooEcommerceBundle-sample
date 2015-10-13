@@ -34,12 +34,6 @@ class CustomerGroup
      * )
      */
     protected $name;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="PriceCurrency")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    protected $priceCurrency;
 
     /**
      * Get id
@@ -73,28 +67,6 @@ class CustomerGroup
     public function getName()
     {
         return $this->name;
-    }
-    
-    /**
-     * Set priceCurrency
-     *
-     * PriceCurrency $priceCurrency
-     *
-     * @return CustomerGroup
-     */
-    public function setPriceCurrency(PriceCurrency $priceCurrency)
-    {
-        $this->priceCurrency = $priceCurrency;
-    }
-
-    /**
-     * Get priceCurrency
-     *
-     * @return PriceCurrency $priceCurrency
-     */
-    public function getPriceCurrency()
-    {
-        return $this->priceCurrency;
     }
 
 }

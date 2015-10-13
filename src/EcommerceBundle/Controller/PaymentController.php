@@ -31,7 +31,7 @@ class PaymentController extends Controller
         
         $payment = $storage->create();
         $payment->setNumber($order->getId());
-        $payment->setCurrencyCode($order->getUser()->getCustomerGroup()->getPriceCurrency()->getCode());
+        $payment->setCurrencyCode($order->getUser()->getPriceCurrency()->getCode());
         $payment->setTotalAmount($order->getTotalPaymentDue() * 100); // 123 = 1.23 EUR
         $payment->setDescription('Headoo Picture Marketing');
         $payment->setClientId($order->getUser()->getId());
@@ -133,7 +133,7 @@ class PaymentController extends Controller
         
         $payment = $storage->create();
         $payment->setNumber($order->getId());
-        $payment->setCurrencyCode($order->getUser()->getCustomerGroup()->getPriceCurrency()->getCode());
+        $payment->setCurrencyCode($order->getUser()->getPriceCurrency()->getCode());
         $payment->setTotalAmount($order->getTotalPaymentDue() * 100); // 123 = 1.23 EUR
         $payment->setDescription('Headoo Picture Marketing');
         $payment->setClientId($order->getUser()->getId());

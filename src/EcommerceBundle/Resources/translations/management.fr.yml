@@ -44,5 +44,7 @@ hecommerce:
     paymentmethod:
         pl: "Méthodes de paiment"
         create: "Nouvelle méthode de paiement"
+    order:
+        pl: "Commandes"
 
         

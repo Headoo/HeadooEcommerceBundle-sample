@@ -36,12 +36,18 @@ EOT
                 $order = $email->getOrder();             
                 $orderedItems = $this->getContainer()->get('hecommerce.ordereditem.manager')->loadByOrder($order);
 
-                $body = $this->getContainer()->get('templating')->render('HeadooEcommerceBundle:Store:confirmationEmail.html.twig', array('order' => $order, 'orderedItems' => $orderedItems));
+                $locale = $order->getUser()->getLanguage();
+                $translator = $this->getContainer()->get('translator');
+                $translator->setLocale($locale);
+                $emailSubject = $translator->trans('hecommerce.store.mailsubject', array(), 'store');
+                $emailTemplate = (empty('HeadooEcommerceBundle:Store:confirmationEmail.' . $locale . '.html.twig')) ?: 'HeadooEcommerceBundle:Store:confirmationEmail.en_US.html.twig';
+                $emailSender = $this->getContainer()->getParameter('headoo_ecommerce.store.email_sender');
+                $body = $this->getContainer()->get('templating')->render($emailTemplate, array('order' => $order, 'orderedItems' => $orderedItems));
                 
                 $swiftMailer = $this->getContainer()->get('mailer');
                 $swiftMessage = \Swift_Message::newInstance();
-                $swiftMessage->setSubject("Headoo - Votre commande " . $order->getId())
-                            ->setFrom('ana@headoo.com')
+                $swiftMessage->setSubject($emailSubject . " " . $order->getId())
+                            ->setFrom($emailSender)
                             ->setTo($order->getUser()->getEmail())
                             ->setContentType('text/html')
                             ->addPart($body, 'text/html');
@@ -50,10 +56,6 @@ EOT
                 $email->setSentAt();
                 
             } catch (\Exception $e) {
-                /* Something as failed in the line. I manage my priorities : I persist, I flush and then…
-                   I can throw the exception (and not catch it so it will be managed by my main monolog handler, see config files).
-                   I do not continue my loop because I'm not in a hurry and the other lines will be taken care of 
-                   when this command will be relaunched by the cron and maybe, this will give me enough time to do something */
                 $em->persist($email);
                 $em->flush();
                 throw $e;

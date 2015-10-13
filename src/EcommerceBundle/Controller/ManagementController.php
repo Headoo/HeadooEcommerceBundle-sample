@@ -16,8 +16,5 @@ class ManagementController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return array(
-            'template' => 'management'
-        );
     }
 }

@@ -9,12 +9,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class CustomerGroupType extends AbstractType
 {
 	protected $customerGroupEntity;
-	protected $priceCurrencyEntity;
 	
-	public function __construct ($customerGroupEntity, $priceCurrencyEntity)
+	public function __construct ($customerGroupEntity)
 	{
 	    $this->customerGroupEntity = $customerGroupEntity;
-	    $this->priceCurrencyEntity = $priceCurrencyEntity;
 	}
 
     /**
@@ -24,13 +22,7 @@ class CustomerGroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array('label' => 'hecommerce.management.name'))
-            ->add('priceCurrency', 'entity', array(
-                'class' => $this->priceCurrencyEntity,
-                'property' => 'code',
-                'label' => 'hecommerce.pricecurrency.sing'
-            ))
-        ;
+            ->add('name', 'text', array('label' => 'hecommerce.management.name'));
     }
     
     /**

@@ -55,9 +55,8 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:
-        - CoreBundle
+        - AppBundle
         - HeadooEcommerceBundle
-        - FOSUserBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -150,5 +149,7 @@ headoo_ecommerce:
     confirmationemail:
         entity: EcommerceBundle\Entity\ConfirmationEmail
     breadcrumb:
-        home:   core_index
+        home:   app_index
+    store:
+        email_sender: ana@headoo.com
 

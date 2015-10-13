@@ -41,15 +41,15 @@ class Service
     
     /**
      * @ORM\ManyToOne(targetEntity="CustomerGroup")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    protected $customerGroup = 0;
+    protected $customerGroup;
     
     /**
-     * @ORM\ManyToOne(targetEntity="ServiceRange")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="ServiceRange", inversedBy="services")
+     * @ORM\JoinColumn(name="service_range_id", referencedColumnName="id", nullable=true)
      */
-    protected $serviceRange = 0;
+    protected $serviceRange;
     
     public function __toString()
     {

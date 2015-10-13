@@ -5,33 +5,36 @@ namespace EcommerceBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use EcommerceBundle\Controller\GenericController;
 
 /**
  * Order controller.
  *
  */
-class OrderController
+class OrderController extends GenericController
 {
-    private $class;
-    private $formFactory;
-    private $translator;
-    private $em;
-    private $router;
-
-    public function __construct($class, $formFactory, $translator, $em, $router)
+    public function __construct()
     {
-        $this->class = $class;
-        $this->formFactory = $formFactory;
-        $this->translator = $translator;
-        $this->em = $em;
-        $this->router = $router;
+        parent::__construct('headoo_ecommerce.order.entity', 'Order');
     }
-    
+
+    /**
+     * Deletes an entity.
+     *
+     */
+    public function deleteAction(Request $request, $id)
+    {
+        parent::deleteAction($request, $id);
+
+        return $this->redirect($this->generateUrl('hecommerce_store_buy'));
+    }
+
+
     /**
      * Deletes an Order entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    /*public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
@@ -48,7 +51,7 @@ class OrderController
         }
 		
 		return new RedirectResponse($this->router->generate('hecommerce_store_buy'));
-    }
+    }*/
 
     /**
      * Creates a form to delete an Order entity by id.
@@ -57,7 +60,7 @@ class OrderController
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    public function createDeleteForm($id)
+    /*public function createDeleteForm($id)
     {   
         $submitTranslation = $this->translator->trans('hecommerce.management.delete', array(), 'management');
         
@@ -67,5 +70,5 @@ class OrderController
 		            ->add('submit', 'submit', array('label' => $submitTranslation))
 		            ->getForm()
 		            ;
-    }
+    }*/
 }

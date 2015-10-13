@@ -11,6 +11,12 @@
         </thead>
         <tbody>
             <tr>
+                <td>{{ 'hecommerce.order.pl'|trans({}, 'management') }}</td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('hecommerce_management_order') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>
+                </td>
+            </tr>
+            <tr>
                 <td>{{ 'hecommerce.customergroup.pl'|trans({}, 'management') }}</td>
                 <td>
                     <a class="btn btn-default" href="{{ path('hecommerce_management_customergroup') }}">{{ 'hecommerce.management.check'|trans({}, 'management') }}</a>

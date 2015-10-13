@@ -18,7 +18,7 @@
                    <tr>
                        <td>{{ item.service.translate(app.request.locale).getName }}</td>
                        <td>{{ item.quantity }}</td>
-                       <td>{{ item.service.price|localizedcurrency(order.user.customerGroup.priceCurrency.code) }}</td>
+                       <td>{{ item.service.price|localizedcurrency(order.user.priceCurrency.code) }}</td>
                    </tr>
                 {% endfor %}
            </tbody>           
@@ -26,7 +26,7 @@
                <tr>
                    <th>{{ 'hecommerce.store.total'|trans({}, 'store') }}</th>
                    <th></th>
-                   <th>{{ order.totalPaymentDue|localizedcurrency(order.user.customerGroup.priceCurrency.code) }}</th>
+                   <th>{{ order.totalPaymentDue|localizedcurrency(order.user.priceCurrency.code) }}</th>
                </tr>
            </tfoot>
         </table>

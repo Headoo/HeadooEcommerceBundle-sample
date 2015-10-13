@@ -1,4 +1,6 @@
-<p>Bonjour,</p>
+<p>Bonjour {{ order.user.firstName }},</p>
+
+<p>Merci de votre achat dans notre boutique !</p>
 
 <p>Voici le détail de votre <b>commande n° {{ order.id }}</b> du {{ order.orderDate|date('d-m-Y') }}.</p>
 
@@ -16,13 +18,11 @@
 
 <ul>
     {% for item in orderedItems %}
-        <li>{{ item.quantity }} x {{ item.service.name }} = {{ item.service.price|localizedcurrency(order.user.reseller.priceCurrency.code) }}</li>
+        <li>{{ item.quantity }} x {{ item.service.translate(order.user.language).getName }} = {{ item.service.price|localizedcurrency(order.user.priceCurrency.code) }}</li>
     {% endfor %}
 </ul>
 
-<p><b>Total:</b> {{ order.totalPaymentDue|localizedcurrency(order.user.reseller.priceCurrency.code) }}</p>
+<p><b>Total:</b> {{ order.totalPaymentDue|localizedcurrency(order.user.priceCurrency.code) }}</p>
 
 <p><b>Méthode de paiement:</b> {{ order.paymentMethod.name }}</p>
-
-<p>Headoo likes U :)</p>
 

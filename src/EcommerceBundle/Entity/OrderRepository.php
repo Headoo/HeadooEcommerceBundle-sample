@@ -12,7 +12,7 @@ class OrderRepository extends \Doctrine\ORM\EntityRepository
      * Find the current non concluded order of the user that is connected (if there is already one). 
      *
      * Stripe: the order concluded has a paymentDate, a paymentMethod and the paymentDetails.
-     * Reseller: the order concluded has a paymentMethod and the paymentDetails. However, it is not yet paid so the paymentDate is empty.
+     * Offline: the order concluded has a paymentMethod and the paymentDetails. However, it is not yet paid so the paymentDate is empty.
      *
      * @return object or null
      */

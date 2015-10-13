@@ -26,11 +26,10 @@ class StoreController extends Controller
             throw new AccessDeniedException();
         }
 
-        $customerGroup      = $this->get('security.token_storage')->getToken()->getUser()->getCustomerGroup();
-        $serviceManager     = $this->get('hecommerce.service.manager');
-        $services           = $serviceManager->loadByCustomerGroup($customerGroup);
+        $user               = $this->get('security.token_storage')->getToken()->getUser();
+        $services           = $this->get('hecommerce.service.manager')->loadByCustomerGroup($user->getCustomerGroup());
         $order              = $this->get('hecommerce.order.manager')->loadOrderForConnectedUser();
-        
+
         if ($order) {
             $total          = $order->getTotalPaymentDue();
         } else {
@@ -40,10 +39,10 @@ class StoreController extends Controller
         $quantity = $this->getNumberOfOrderedItems($order);
     
         return array(
-            'services'      => $services,
-            'quantity'      => $quantity,
-            'total'         => $total,
-            'customerGroup' => $customerGroup
+            'services'          => $services,
+            'quantity'          => $quantity,
+            'total'             => $total,
+            'user'              => $user
         );
     }
     

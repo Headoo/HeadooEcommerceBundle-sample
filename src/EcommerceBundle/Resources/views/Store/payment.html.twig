@@ -10,12 +10,7 @@
                 {% for method in paymentMethods %}
                    <tr>
                        <th>
-                           {% set paymentMethodImg = method.name %}
-                           <img src="{{ asset('images/' ~ paymentMethodImg ~ '.png') }}" width="80px" alt="payment method">
-
-                           {% image '@HeadooEcommerceBundle/Resources/public/images/' ~ paymentMethodImg ~ '.jpg' output="images/your-image.jpg" %}
-                                <img src="{{ asset_url }}" alt="my alt of image" class="pull-left">
-                           {% endimage %}
+                           <img href="{{ asset('/bundles/headooecommerce/images/' ~ method.name ~ '.jpg') }}" width="80px" alt="payment method" />
                        </th>
                        <td>
                             <a class="btn btn-primary" href="{{ path('hecommerce_payment_prepare_' ~ method.name) }}">{{ 'hecommerce.store.choosepayment'|trans({}, 'store') }}</a>
@@ -26,6 +21,6 @@
         </table>
     {% endif %}
 
-    <img src="{{ asset('@EcommerceBundle/Resources/public/images/stripe-logo.png') }}" alt="powered by stripe">
+    <img src="{{ asset('/bundles/headooecommerce/images/stripe-logo.png') }}" alt="powered by stripe">
 
 {% endblock hecommerce_content %}

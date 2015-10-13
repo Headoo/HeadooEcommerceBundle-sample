@@ -18,7 +18,7 @@ class ConfirmationEmailRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->getEntityManager()->createQueryBuilder();
         
         return $qb ->select('c')
-                    ->from('Headoo\EcommerceBundle\Entity\ConfirmationEmail','c')
+                    ->from('EcommerceBundle\Entity\ConfirmationEmail','c')
                     ->where($qb->expr()->lte('c.sendAt', ':date'))
                     ->andwhere('c.sentAt is NULL')
                     ->setParameter('date', date("Y-m-d H:i:s"))
