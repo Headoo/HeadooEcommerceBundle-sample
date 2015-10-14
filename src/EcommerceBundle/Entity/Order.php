@@ -255,4 +255,13 @@ class Order
         return $this->paymentDate;
     }
 
+    /**
+     * Get orderedItems
+     *
+     * @return OrderedItem
+     */
+    public function getOrderedItems()
+    {
+        return $this->orderedItems;
+    }
 }

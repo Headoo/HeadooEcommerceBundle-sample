@@ -1,9 +1,9 @@
 services:
 
-    #Controllers
-    hecommerce.order.controller:
-        class:      EcommerceBundle\Controller\OrderController
-        arguments:  [ %headoo_ecommerce.order.entity%, @form.factory, @translator, @doctrine.orm.entity_manager, @router ]
+    #Handler
+    hecommerce.handler.controller:
+        class:      EcommerceBundle\Handler\ControllerHandler
+        arguments:  [ @doctrine.orm.entity_manager, @translator, @form.factory, @router ]
 
     #Managers
     hecommerce.service.manager:
@@ -32,7 +32,7 @@ services:
         class:      EcommerceBundle\Form\ServiceType
         tags:
             - { name: form.type, alias: hecommerce_service_form }
-        arguments:  [ %headoo_ecommerce.customergroup.entity%, %headoo_ecommerce.service.entity%, %headoo_ecommerce.servicerange.entity%]
+        arguments:  [ %headoo_ecommerce.customergroup.entity%, %headoo_ecommerce.service.entity%, %headoo_ecommerce.servicerange.entity%, %headoo_ecommerce.pricecurrency.entity%]
     hecommerce.form.type.servicerange:
         class:      EcommerceBundle\Form\ServiceRangeType
         tags:

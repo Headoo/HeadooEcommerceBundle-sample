@@ -11,12 +11,14 @@ class ServiceType extends AbstractType
 	protected $customerGroupEntity;
 	protected $serviceEntity;
 	protected $serviceRangeEntity;
+    protected $priceCurrency;
 	
-	public function __construct ($customerGroupEntity, $serviceEntity, $serviceRangeEntity)
+	public function __construct ($customerGroupEntity, $serviceEntity, $serviceRangeEntity, $priceCurrency)
 	{
 	    $this->customerGroupEntity = $customerGroupEntity;
 	    $this->serviceEntity = $serviceEntity;
 	    $this->serviceRangeEntity = $serviceRangeEntity;
+        $this->priceCurrency = $priceCurrency;
 	}
 
     /**
@@ -38,6 +40,11 @@ class ServiceType extends AbstractType
                         'label' => 'hecommerce.management.description',
                     )
                 )
+            ))
+            ->add('priceCurrency', 'entity', array(
+                'class' => $this->priceCurrency,
+                'property' => 'code',
+                'label' => 'hecommerce.pricecurrency.sing'
             ))
             ->add('price', 'integer', array('label' => 'hecommerce.management.price'))
             ->add('customerGroup', 'entity', array(

@@ -143,12 +143,20 @@ class User extends BaseUser
     /**
      * @ORM\ManyToOne(targetEntity="PriceCurrency")
      * @ORM\JoinColumn(nullable=true)
+     * @Assert\NotBlank(
+     *      message="Please choose a price currency.",
+     *      groups={"Registration", "Profile"}
+     * )
      */
     protected $priceCurrency;
 
     /**
      * @ORM\ManyToOne(targetEntity="CustomerGroup")
      * @ORM\JoinColumn(nullable=true)
+     * @Assert\NotBlank(
+     *      message="Please choose a customer group.",
+     *      groups={"Registration", "Profile"}
+     * )
      */
     protected $customerGroup;
 

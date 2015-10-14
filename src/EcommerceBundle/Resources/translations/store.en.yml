@@ -26,4 +26,5 @@ hecommerce:
         useredit: "Edit my profile"
         usernoservice: "Please, complete your profile and tell us in which kind of services you are interested and which price currency you use."
         mailsubject: "Headoo - Your order"
+        noservicesavailable: "No services available"
         

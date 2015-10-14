@@ -27,7 +27,7 @@ class StoreController extends Controller
         }
 
         $user               = $this->get('security.token_storage')->getToken()->getUser();
-        $services           = $this->get('hecommerce.service.manager')->loadByCustomerGroup($user->getCustomerGroup());
+        $services           = $this->get('hecommerce.service.manager')->loadByCustomerGroupAndPriceCurrency($user->getCustomerGroup(), $user->getPriceCurrency());
         $order              = $this->get('hecommerce.order.manager')->loadOrderForConnectedUser();
 
         if ($order) {
@@ -86,7 +86,7 @@ class StoreController extends Controller
         $userMessage        = $this->verifyUserDetails();
 
         if ($order) {
-            $deleteForm     = $this->get('hecommerce.order.controller')->createDeleteForm($order->getId())->createView();
+            $deleteForm     = $this->container->get('hecommerce.handler.controller')->createDeleteEntityForm($order->getId(), 'order');
         } else {
             $deleteForm     = null;
         }
@@ -95,7 +95,7 @@ class StoreController extends Controller
             'order'         => $order,
             'orderedItems'  => $orderedItems,
             'userMessage'   => $userMessage,
-            'delete_form'   => $deleteForm
+            'delete_form'   => $deleteForm->createView()
         );
     }
     

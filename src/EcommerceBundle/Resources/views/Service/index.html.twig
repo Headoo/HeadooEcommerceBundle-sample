@@ -8,6 +8,7 @@
                 <th>{{ 'hecommerce.management.id'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.name'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.description'|trans({}, 'management') }}</th>
+                <th>{{ 'hecommerce.management.pricecurrency'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.management.price'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.customergroup.sing'|trans({}, 'management') }}</th>
                 <th>{{ 'hecommerce.servicerange.sing'|trans({}, 'management') }}</th>
@@ -20,9 +21,22 @@
                 <td><a href="{{ path('hecommerce_management_service_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.translate(app.request.locale).getName }}</td>
                 <td>{{ entity.translate(app.request.locale).getDescription }}</td>
+                {% if entity.priceCurrency %}
+                    <td>{{ entity.priceCurrency.code }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
                 <td>{{ entity.price }}</td>
-                <td>{{ entity.customerGroup.name }}</td>
-                <td>{{ entity.serviceRange.name }}</td>
+                {% if entity.customerGroup %}
+                    <td>{{ entity.customerGroup.name }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                {% if entity.serviceRange %}
+                    <td>{{ entity.serviceRange.name }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
                 <td>
                     <a class="btn btn-default" href="{{ path('hecommerce_management_service_show', { 'id': entity.id }) }}">{{ 'hecommerce.management.show'|trans({}, 'management') }}</a>
                     <a class="btn btn-default" href="{{ path('hecommerce_management_service_edit', { 'id': entity.id }) }}">{{ 'hecommerce.management.edit'|trans({}, 'management') }}</a>

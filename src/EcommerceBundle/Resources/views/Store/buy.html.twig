@@ -32,6 +32,11 @@
                            </form>
                        </td>
                    </tr>
+                    {% if services is null %}
+                        <tr>
+                            <td>{{ 'hecommerce.store.noservicesavailable'|trans({}, 'store') }}</td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
            </tbody>
        </table>

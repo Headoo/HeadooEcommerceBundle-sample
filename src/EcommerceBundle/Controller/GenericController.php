@@ -129,7 +129,7 @@ class GenericController extends Controller
             throw $this->createNotFoundException('Unable to find the entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->container->get('hecommerce.handler.controller')->createDeleteEntityForm($id, $this->entityName);
 
         return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
             array(
@@ -155,7 +155,7 @@ class GenericController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $deleteForm = $this->container->get('hecommerce.handler.controller')->createDeleteEntityForm($id, $this->entityName);
 
         return $this->render('HeadooEcommerceBundle:' . $this->folderName . ':actions.html.twig',
             array(
@@ -225,41 +225,8 @@ class GenericController extends Controller
      */
     public function deleteAction(Request $request, $id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository($this->getEntity())->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find the entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
+        $this->container->get('hecommerce.handler.controller')->deleteEntity($request, $id, $this->getEntity(), $this->entityName);
 
         return $this->redirect($this->generateUrl('hecommerce_management_' . $this->entityName));
     }
-
-    /**
-     * Creates a form to delete an entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        $submitTranslation = $this->get('translator')->trans('hecommerce.management.delete', array(), 'management');
-
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('hecommerce_management_' . $this->entityName . '_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => $submitTranslation ))
-            ->getForm()
-            ;
-    }
-
 }

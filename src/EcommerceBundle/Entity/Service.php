@@ -4,6 +4,7 @@ namespace EcommerceBundle\Entity;
 
 use EcommerceBundle\Entity\ServiceRange;
 use EcommerceBundle\Entity\CustomerGroup;
+use EcommerceBundle\Entity\PriceCurrency;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
@@ -26,7 +27,7 @@ class Service
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @var integer
      *
@@ -38,6 +39,12 @@ class Service
      * )
      */
     protected $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PriceCurrency")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $priceCurrency;
     
     /**
      * @ORM\ManyToOne(targetEntity="CustomerGroup")
@@ -65,7 +72,7 @@ class Service
     {
         return $this->id;
     }
-    
+
     /**
      * Set price
      *
@@ -88,6 +95,28 @@ class Service
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set priceCurrency
+     *
+     * $priceCurrency
+     *
+     * @return Service
+     */
+    public function setPriceCurrency($priceCurrency)
+    {
+        $this->priceCurrency = $priceCurrency;
+    }
+
+    /**
+     * Get priceCurrency
+     *
+     * @return $priceCurrency
+     */
+    public function getPriceCurrency()
+    {
+        return $this->priceCurrency;
     }
     
     /**

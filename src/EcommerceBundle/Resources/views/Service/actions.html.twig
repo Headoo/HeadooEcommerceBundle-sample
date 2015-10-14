@@ -27,16 +27,32 @@
                 <td>{{ entity.translate(app.request.locale).getDescription }}</td>
             </tr>
             <tr>
+                <th>{{ 'hecommerce.management.pricecurrency'|trans({}, 'management') }}</th>
+                {% if entity.priceCurrency %}
+                    <td>{{ entity.priceCurrency.code }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            </tr>
+            <tr>
                 <th>{{ 'hecommerce.management.price'|trans({}, 'management') }}</th>
                 <td>{{ entity.price }}</td>
             </tr>
             <tr>
                 <th>{{ 'hecommerce.customergroup.sing'|trans({}, 'management') }}</th>
-                <td>{{ entity.customerGroup.name }}</td>
+                {% if entity.customerGroup %}
+                    <td>{{ entity.customerGroup.name }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
             </tr>
             <tr>
                 <th>{{ 'hecommerce.servicerange.sing'|trans({}, 'management') }}</th>
-                <td>{{ entity.serviceRange.name }}</td>
+                {% if entity.serviceRange %}
+                    <td>{{ entity.serviceRange.name }}</td>
+                {% else %}
+                    <td></td>
+                {% endif %}
             </tr>
             </tbody>
         </table>
