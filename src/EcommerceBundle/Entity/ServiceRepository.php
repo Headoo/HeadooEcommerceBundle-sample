@@ -19,8 +19,12 @@ class ServiceRepository extends \Doctrine\ORM\EntityRepository
 
         return $qb ->select('s')
             ->from('EcommerceBundle\Entity\Service','s')
-            ->where('s.customerGroup.id =' . $customerGroup->getId())
-            ->andwhere('s.priceCurrency.id =' . $priceCurrency->getId())
+            ->where('s.customerGroup = :customerGroup')
+            ->andwhere('s.priceCurrency = :priceCurrency')
+            ->setParameters(array(
+                'customerGroup' => $customerGroup,
+                'priceCurrency' => $priceCurrency
+            ))
             ->getQuery()
             ->getResult();
     }
