@@ -16,10 +16,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
+            new Headoo\AppBundle\AppBundle(),
             new Payum\Bundle\PayumBundle\PayumBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new EcommerceBundle\HeadooEcommerceBundle(),
+            new Headoo\EcommerceBundle\HeadooEcommerceBundle(),
             new Knp\DoctrineBehaviors\Bundle\DoctrineBehaviorsBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
         );

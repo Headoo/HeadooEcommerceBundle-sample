@@ -108,9 +108,9 @@ swiftmailer:
 payum:
     security:
         token_storage:
-            EcommerceBundle\Entity\PaymentToken: { doctrine: orm }
+            Headoo\EcommerceBundle\Entity\PaymentToken: { doctrine: orm }
     storages:
-        EcommerceBundle\Entity\Payment: { doctrine: orm }
+        Headoo\EcommerceBundle\Entity\Payment: { doctrine: orm }
     gateways:
         offline:
             offline: ~
@@ -120,34 +120,34 @@ payum:
                 secret_key: 'sk_test_4Q9rY8Ner7F2h6Tyanliz3II'
 
 fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: EcommerceBundle\Entity\User
+    db_driver:      orm
+    firewall_name:  main
+    user_class:     Headoo\EcommerceBundle\Entity\User
     registration:
         form:
-            type: hecommerce_user_registration
+            type:   hecommerce_user_registration
     profile:
         form:
-            type: hecommerce_user_profile
+            type:   hecommerce_user_profile
 
 # Ecommerce Configuration
 headoo_ecommerce:
     customergroup:
-        entity: EcommerceBundle\Entity\CustomerGroup
+        entity: Headoo\EcommerceBundle\Entity\CustomerGroup
     service:
-        entity: EcommerceBundle\Entity\Service
+        entity: Headoo\EcommerceBundle\Entity\Service
     servicerange:
-        entity: EcommerceBundle\Entity\ServiceRange
+        entity: Headoo\EcommerceBundle\Entity\ServiceRange
     pricecurrency:
-        entity: EcommerceBundle\Entity\PriceCurrency
+        entity: Headoo\EcommerceBundle\Entity\PriceCurrency
     paymentmethod:
-        entity: EcommerceBundle\Entity\PaymentMethod
+        entity: Headoo\EcommerceBundle\Entity\PaymentMethod
     ordereditem:
-        entity: EcommerceBundle\Entity\OrderedItem
+        entity: Headoo\EcommerceBundle\Entity\OrderedItem
     order:
-        entity: EcommerceBundle\Entity\Order
+        entity: Headoo\EcommerceBundle\Entity\Order
     confirmationemail:
-        entity: EcommerceBundle\Entity\ConfirmationEmail
+        entity: Headoo\EcommerceBundle\Entity\ConfirmationEmail
     breadcrumb:
         home:   app_index
     store:

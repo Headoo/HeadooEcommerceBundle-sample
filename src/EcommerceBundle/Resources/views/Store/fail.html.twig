@@ -1,9 +1,0 @@
-{% extends 'HeadooEcommerceBundle::base.html.twig' %}
-
-{% block hecommerce_content %}
-
-    <h4>{{ 'hecommerce.store.fail'|trans({}, 'store') }}</h4>
-    
-    <a href="{{ path('hecommerce_store_payment') }}">{{ 'hecommerce.store.backtopayment'|trans({}, 'store') }}</a>
-
-{% endblock hecommerce_content %}
